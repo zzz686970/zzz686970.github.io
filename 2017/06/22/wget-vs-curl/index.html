@@ -92,7 +92,7 @@
 <meta property="og:url" content="https://zzz686970.githsub.io/2017/06/22/wget-vs-curl/index.html">
 <meta property="og:site_name" content="蘑菇">
 <meta property="og:description" content="wgetwget是Linux常用的一个下载文件的命令  碰到&amp;amp;等特殊字符需要加上双引号 重命名保存,由于会以最后一个”/“作为名字   wget -O [newname] [url]   限速下载(默认bytes/s ) wget –limit-rate=50k [url]   后台下载 wget -b [url]tail -f wget-log">
-<meta property="og:updated_time" content="2017-06-22T13:49:05.000Z">
+<meta property="og:updated_time" content="2017-06-22T13:51:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wget vs curl">
 <meta name="twitter:description" content="wgetwget是Linux常用的一个下载文件的命令  碰到&amp;amp;等特殊字符需要加上双引号 重命名保存,由于会以最后一个”/“作为名字   wget -O [newname] [url]   限速下载(默认bytes/s ) wget –limit-rate=50k [url]   后台下载 wget -b [url]tail -f wget-log">
@@ -501,16 +501,16 @@
 </ol>
 <p><code>-s</code> silent不显示信息</p>
 <blockquote>
-<p> curl -w ‘We downloaded %{size_download} bytes\n’ www.download.com<br>curl -m 1800 -Y 3000 -y 60 [url]</p>
+<p>curl -w ‘We downloaded %{size_download} bytes\n’ www.download.com<br>curl -m 1800 -Y 3000 -y 60 [url]</p>
 </blockquote>
 <p>必须在30分钟完成，且每秒的速度不得低于3000字节</p>
 <ol>
 <li>user agent<br>curl –user-agent “Mozilla/4.05 [en] (X11; U; Linux 2.0.32 i586)” [URL]</li>
-<li>cookie 从http response头信息的<code>Set-Cookie</code>字段中得到</li>
-</ol>
-<blockquote>
+<li>cookie 从http response头信息的<code>Set-Cookie</code>字段中得到<blockquote>
 <p>curl -c cookies <a href="http://example.com" target="_blank" rel="external">http://example.com</a><br>curl –dump-header headers [url]<br>curl -b headers [url]<br>curl -L -b empty.txt [url]</p>
 </blockquote>
+</li>
+</ol>
 <p><code>-c cookie-file</code>可以保存服务器返回的cookie为netscape格式<br><code>-b cookie-file</code> 直接使用header作为cookie<br><code>-L -b</code>发现模式寻找cookie，可能并不存在</p>
 <blockquote>
 <p>  curl -b cookies.txt -c cookies.txt www.example.com</p>
@@ -529,12 +529,9 @@
 <p>同一个host放在一行减少传输的连接时间</p>
 <ol>
 <li>解决重复输入密码<blockquote>
-<p>curl -n –netrc-optinal [options] [url]</p>
+<p>curl -n –netrc-optinal [options] [url]<br>s<br><code>.netrc</code> 类似于<code>machine curl.haxx.se login iamdaniel password mysecret</code></p>
 </blockquote>
 </li>
-</ol>
-<p><code>.netrc</code> 类似于<code>machine curl.haxx.se login iamdaniel password mysecret</code></p>
-<ol>
 <li>当服务器有更新的文件则更新，或指定日期<blockquote>
 <p>curl -z local.html ‘url’<br>curl -z ‘2017-6-22’ [url]</p>
 </blockquote>
