@@ -85,17 +85,17 @@
 
 
 
-<meta name="description" content="wgetwget是Linux常用的一个下载文件的命令  碰到&amp;amp;等特殊字符需要加上双引号 重命名保存,由于会以最后一个”/“作为名字   wget -O [newname] [url]   限速下载(默认bytes/s ) wget –limit-rate=50k [url]   后台下载 wget -b [url]tail -f wget-log">
+<meta name="description" content="wgetwget是Linux常用的一个下载文件的命令  碰到&amp;amp;等特殊字符需要加上双引号 重命名保存,由于会以最后一个”/“作为名字    1wget -O [newname] [url]  限速下载(默认bytes/s )  1wget --limit-rate=50k [url]  后台下载  123wget -b [url]tail -f wget-log">
 <meta name="keywords" content="wget curl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="wget vs curl">
 <meta property="og:url" content="https://zzz686970.githsub.io/2017/06/22/wget-vs-curl/index.html">
 <meta property="og:site_name" content="蘑菇">
-<meta property="og:description" content="wgetwget是Linux常用的一个下载文件的命令  碰到&amp;amp;等特殊字符需要加上双引号 重命名保存,由于会以最后一个”/“作为名字   wget -O [newname] [url]   限速下载(默认bytes/s ) wget –limit-rate=50k [url]   后台下载 wget -b [url]tail -f wget-log">
-<meta property="og:updated_time" content="2017-06-23T12:58:06.000Z">
+<meta property="og:description" content="wgetwget是Linux常用的一个下载文件的命令  碰到&amp;amp;等特殊字符需要加上双引号 重命名保存,由于会以最后一个”/“作为名字    1wget -O [newname] [url]  限速下载(默认bytes/s )  1wget --limit-rate=50k [url]  后台下载  123wget -b [url]tail -f wget-log">
+<meta property="og:updated_time" content="2017-07-05T12:20:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wget vs curl">
-<meta name="twitter:description" content="wgetwget是Linux常用的一个下载文件的命令  碰到&amp;amp;等特殊字符需要加上双引号 重命名保存,由于会以最后一个”/“作为名字   wget -O [newname] [url]   限速下载(默认bytes/s ) wget –limit-rate=50k [url]   后台下载 wget -b [url]tail -f wget-log">
+<meta name="twitter:description" content="wgetwget是Linux常用的一个下载文件的命令  碰到&amp;amp;等特殊字符需要加上双引号 重命名保存,由于会以最后一个”/“作为名字    1wget -O [newname] [url]  限速下载(默认bytes/s )  1wget --limit-rate=50k [url]  后台下载  123wget -b [url]tail -f wget-log">
 <meta name="twitter:creator" content="@[object Object]">
 
 
@@ -400,146 +400,122 @@
         <h2 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h2><p>wget是Linux常用的一个下载文件的命令</p>
 <ol>
 <li>碰到<code>&amp;</code>等特殊字符需要加上双引号</li>
-<li>重命名保存,由于会以最后一个”/“作为名字  <blockquote>
-<p>wget -O [newname] [url]</p>
-</blockquote>
-</li>
-<li>限速下载(默认bytes/s )<blockquote>
-<p>wget –limit-rate=50k [url]</p>
-</blockquote>
-</li>
-<li>后台下载<blockquote>
-<p>wget -b [url]<br>tail -f wget-log</p>
-</blockquote>
-</li>
+<li>重命名保存,由于会以最后一个”/“作为名字  </li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -O [newname] [url]</div></pre></td></tr></table></figure>
+<ol>
+<li>限速下载(默认bytes/s )</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget --limit-rate=50k [url]</div></pre></td></tr></table></figure>
+<ol>
+<li>后台下载</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget -b [url]</div><div class="line"></div><div class="line">tail -f wget-log</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <ol>
-<li>断点续传<blockquote>
-<p>wget -c </p>
-</blockquote>
-</li>
-<li>同时下载多个文件<blockquote>
-<p>cat downloads.txt<br> wget -i downloads.txt </p>
-</blockquote>
-</li>
-<li>伪装代理名称下载<blockquote>
-<p>wget –user-agent=”Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16” [url]</p>
-</blockquote>
-</li>
-<li>测试下载链接是否有效<blockquote>
-<p>wget –spider [url]</p>
-</blockquote>
-</li>
-<li>重试次数<blockquote>
-<p>wget –tries=40 [url]</p>
-</blockquote>
-</li>
-<li>下载镜像（下载后转换成本地链结，保存文件目录到本地指定目录）<blockquote>
-<p>wget –mirror -p –convert-links -P ./LOCAL</p>
-</blockquote>
-</li>
-<li>过滤格式下载-R<blockquote>
-<p>wget –reject=gif [url]</p>
-</blockquote>
-</li>
-<li>限制总文件大小<blockquote>
-<p>wget -Q5m -i fielist.txt</p>
-</blockquote>
-</li>
-<li>下载指定格式(图片、视频、pdf)-A<blockquote>
-<p>wget -r -A.pdf [url]</p>
-</blockquote>
-</li>
-<li>FTP<blockquote>
-<p>wget –ftp-user=username –ftp-password=password [url </p>
-</blockquote>
-</li>
-<li>保存下载信息<blockquote>
-<p>wget -o download.log [url]</p>
-</blockquote>
-</li>
+<li>断点续传</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -c</div></pre></td></tr></table></figure>
+<ol>
+<li>同时下载多个文件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cat downloads.txt    </div><div class="line">    wget -i downloads.txt</div></pre></td></tr></table></figure>
+<ol>
+<li>伪装代理名称下载</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget --user-agent=&quot;Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16&quot; [url]</div></pre></td></tr></table></figure>
+<ol>
+<li>测试下载链接是否有效</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget --spider [url]</div></pre></td></tr></table></figure>
+<ol>
+<li>重试次数</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget --tries=40 [url]</div></pre></td></tr></table></figure>
+<ol>
+<li>下载镜像（下载后转换成本地链结，保存文件目录到本地指定目录）</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget --mirror -p --convert-links -P ./LOCAL</div></pre></td></tr></table></figure>
+<ol>
+<li>过滤格式下载-R</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget --reject=gif [url]</div></pre></td></tr></table></figure>
+<ol>
+<li>限制总文件大小</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -Q5m -i fielist.txt</div></pre></td></tr></table></figure>
+<ol>
+<li>下载指定格式(图片、视频、pdf)-A</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -r -A.pdf [url]</div></pre></td></tr></table></figure>
+<ol>
+<li>FTP</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget --ftp-user=username --ftp-password=password [url]</div></pre></td></tr></table></figure>
+<ol>
+<li>保存下载信息</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -o download.log [url]</div></pre></td></tr></table></figure>
 <h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><p>Command Line URL view支持文件问上传下载</p>
 <ol>
-<li><p>抓取页面到文件</p>
-<blockquote>
-<p>curl -o index.html <a href="http://njdxydjd.mh.libsou.com/" target="_blank" rel="external">http://njdxydjd.mh.libsou.com/</a><br>curl -O <a href="http://www.cnblogs.com/peida/archive/2013/03/15/2960802.html" target="_blank" rel="external">http://www.cnblogs.com/peida/archive/2013/03/15/2960802.html</a></p>
-</blockquote>
-</li>
-<li><p>显示头信息</p>
-<blockquote>
-<p>curl -i <a href="http://njdxydjd.mh.libsou.com/" target="_blank" rel="external">http://njdxydjd.mh.libsou.com/</a></p>
-</blockquote>
-</li>
+<li>抓取页面到文件</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -o index.html http://njdxydjd.mh.libsou.com/</div><div class="line">curl -O http://www.cnblogs.com/peida/archive/2013/03/15/2960802.html</div></pre></td></tr></table></figure>
+<ol>
+<li>显示头信息</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -i http://njdxydjd.mh.libsou.com/</div></pre></td></tr></table></figure>
 <p><code>-I</code> 只显示http response<br><code>-v</code>  显示通信过程<br><code>--trace output.txt</code> 跟踪整个连接过程<br><code>--trace-ascii output.txt</code></p>
 <ol>
-<li>模拟登陆<blockquote>
-<p>curl </p>
-</blockquote>
-</li>
-<li>断点续传<strong>C</strong>大写<blockquote>
-<p>curl -C - -o file [url]<br>curl -C - -T file [url]</p>
-</blockquote>
-</li>
+<li>模拟登陆<br>curl </li>
+<li>断点续传<strong>C</strong>大写</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -C - -o file [url]</div><div class="line">curl -C - -T file [url]</div></pre></td></tr></table></figure>
 <p>如果url只是server名称那下载时需支持<code>HTTP/1.1</code></p>
 <ol>
-<li>分段下载<blockquote>
-<p>curl -r 0-100 -o 07.part1 <a href="http://njdxydjd.mh.libsou.com/books/diskaiq/aiq24/07.pdf" target="_blank" rel="external">http://njdxydjd.mh.libsou.com/books/diskaiq/aiq24/07.pdf</a><br>cat 07.part* &gt; 07.pdf</p>
-</blockquote>
-</li>
-<li>代理<blockquote>
-<p>curl -x ip [url]</p>
-</blockquote>
-</li>
-<li>下载进度<blockquote>
-<p>curl -# [url]<br>curl -s [url]</p>
-</blockquote>
-</li>
+<li>分段下载</li>
 </ol>
-<p><code>-s</code> silent不显示信息</p>
-<blockquote>
-<p>curl -w ‘We downloaded %{size_download} bytes\n’ www.download.com<br>curl -m 1800 -Y 3000 -y 60 [url]</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -r 0-100 -o 07.part1 http://njdxydjd.mh.libsou.com/books/diskaiq/aiq24/07.pdf  </div><div class="line">cat 07.part*  07.pdf</div></pre></td></tr></table></figure>
+<ol>
+<li>代理</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -x ip [url]</div></pre></td></tr></table></figure>
+<ol>
+<li>下载进度</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -# [url]</div><div class="line">curl -s [url]</div></pre></td></tr></table></figure>
+<p>==<code>-s</code> silent不显示信息==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -w &apos;We downloaded %&#123;size_download&#125; bytes\n&apos; www.download.com  </div><div class="line">curl -m 1800 -Y 3000 -y 60 [url]</div></pre></td></tr></table></figure>
 <p>必须在30分钟完成，且每秒的速度不得低于3000字节</p>
 <ol>
-<li>user agent<blockquote>
-<p>curl –user-agent “Mozilla/4.05 [en] (X11; U; Linux 2.0.32 i586)” [URL]</p>
-</blockquote>
-</li>
-<li>cookie 从http response头信息的<code>Set-Cookie</code>字段中得到<blockquote>
-<p>curl -c cookies <a href="http://example.com" target="_blank" rel="external">http://example.com</a><br>curl –dump-header headers [url]<br>curl -b headers [url]<br>curl -L -b empty.txt [url]</p>
-</blockquote>
-</li>
+<li>user agent</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl --user-agent &quot;Mozilla/4.05 [en] (X11; U; Linux 2.0.32 i586)&quot; [URL]</div></pre></td></tr></table></figure>
+<ol>
+<li>cookie 从http response头信息的<code>Set-Cookie</code>字段中得到</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">curl -c cookies http://example.com</div><div class="line"> curl --dump-header headers [url]</div><div class="line"> curl -b headers [url]</div><div class="line"> curl -L -b empty.txt [url]</div></pre></td></tr></table></figure>
 <p><code>-c cookie-file</code>可以保存服务器返回的cookie为netscape格式<br><code>-b cookie-file</code> 直接使用header作为cookie<br><code>-L -b</code>发现模式寻找cookie，可能并不存在</p>
-<blockquote>
-<p>  curl -b cookies.txt -c cookies.txt www.example.com</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -b cookies.txt -c cookies.txt www.example.com</div></pre></td></tr></table></figure>
 <p>读写使用相同的cookie</p>
 <ol>
-<li>http<blockquote>
-<p>curl –usre name:password [url]</p>
-</blockquote>
-</li>
-<li>下载多个文件<blockquote>
-<p>curl -O [ulr1] [url2] -o 2.pdf<br>curl -T local [ftp1] -T local2 [ftp2]</p>
-</blockquote>
-</li>
+<li>http</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl --usre name:password [url]</div></pre></td></tr></table></figure>
+<ol>
+<li>下载多个文件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -O [ulr1] [url2] -o 2.pdf</div><div class="line">curl -T local [ftp1] -T local2 [ftp2]</div></pre></td></tr></table></figure>
 <p>同一个host放在一行减少传输的连接时间</p>
 <ol>
-<li>解决重复输入密码<blockquote>
-<p>curl -n –netrc-optinal [options] [url]<br>s<br><code>.netrc</code> 类似于<code>machine curl.haxx.se login iamdaniel password mysecret</code></p>
-</blockquote>
-</li>
-<li>当服务器有更新的文件则更新，或指定日期<blockquote>
-<p>curl -z local.html ‘url’<br>curl -z ‘2017-6-22’ [url]</p>
-</blockquote>
-</li>
+<li>解决重复输入密码</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -n --netrc-optinal [options] [url]</div></pre></td></tr></table></figure>
+<p><code>.netrc</code> 类似于<code>machine curl.haxx.se login iamdaniel password mysecret</code></p>
+<ol>
+<li>当服务器有更新的文件则更新，或指定日期</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -z local.html &apos;url&apos;</div><div class="line">curl -z &apos;2017-6-22&apos; [url]</div></pre></td></tr></table></figure>
 <p>反之，<code>-local.html</code></p>
 <h2 id="常用链接"><a href="#常用链接" class="headerlink" title="常用链接"></a>常用链接</h2><ul>
 <li>wget的<a href="https://www.gnu.org/software/wget/manual/wget.html" target="_blank" rel="external">tutorial</a>  </li>

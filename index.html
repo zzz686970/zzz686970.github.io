@@ -976,19 +976,17 @@
           <h2 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h2><p>wget是Linux常用的一个下载文件的命令</p>
 <ol>
 <li>碰到<code>&amp;</code>等特殊字符需要加上双引号</li>
-<li>重命名保存,由于会以最后一个”/“作为名字  <blockquote>
-<p>wget -O [newname] [url]</p>
-</blockquote>
-</li>
-<li>限速下载(默认bytes/s )<blockquote>
-<p>wget –limit-rate=50k [url]</p>
-</blockquote>
-</li>
-<li>后台下载<blockquote>
-<p>wget -b [url]<br>tail -f wget-log</p>
-</blockquote>
-</li>
+<li>重命名保存,由于会以最后一个”/“作为名字  </li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -O [newname] [url]</div></pre></td></tr></table></figure>
+<ol>
+<li>限速下载(默认bytes/s )</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget --limit-rate=50k [url]</div></pre></td></tr></table></figure>
+<ol>
+<li>后台下载</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget -b [url]</div><div class="line"></div><div class="line">tail -f wget-log</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/22/wget-vs-curl/#more" rel="contents">
