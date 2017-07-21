@@ -407,13 +407,18 @@
 <li><p>iterate two lists</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a1 = [<span class="string">'CHN'</span>, <span class="string">'SG'</span>,<span class="string">'MY'</span>]</div><div class="line">b2 = [<span class="string">'people'</span>, <span class="string">'hill'</span>, <span class="string">'durian'</span>]</div><div class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> zip(a1, b2):</div><div class="line">	print(key <span class="string">' has '</span> value)</div></pre></td></tr></table></figure>
 </li>
-<li><p>index wit a list</p>
+<li><p>index with a list</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a1 = [<span class="string">'CHN'</span>, <span class="string">'SG'</span>,<span class="string">'MY'</span>]</div><div class="line">id_a1 = &#123;num: value <span class="keyword">for</span> value, num <span class="keyword">in</span> enumerate(a1)&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>list to str</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a1 = [<span class="string">'CHN'</span>, <span class="string">'SG'</span>,<span class="string">'MY'</span>]</div><div class="line">print(<span class="string">','</span>.join(a1))</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a1 = [<span class="string">'CHN'</span>, <span class="string">'SG'</span>,<span class="string">'MY'</span>]</div><div class="line">print(<span class="string">','</span>.join(a1))</div></pre></td></tr></table></figure>
+<p>列表插入值：a[1:1] = [3,4]<br>保留首尾：a[1:-1]</p>
+<ol>
+<li>zip<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">matrix = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] , [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]]</div><div class="line">res = zip(*matrix)</div><div class="line">print(res)</div><div class="line"><span class="comment">## [(1, 4), (2,5), (3, 6)]</span></div></pre></td></tr></table></figure></li>
+</ol>
+
           
         
       
