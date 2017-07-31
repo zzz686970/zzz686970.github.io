@@ -85,17 +85,17 @@
 
 
 
-<meta name="description" content="Shell Sort 希尔排序分组插入排序：设置步长，将数组分为几组，将分割的两部分混合对应放在一起，对每组进行插入排序==步长为1时，希尔排序变成了插入排序==算法时间复杂度：O(nlogn) ~ O(n * n)空间复杂度：O(1) 思考：gap每次将长度为N的列表分为N/2部分，a[0]和a[N/2 +1]比较交换，接着合并再分割为N/4,知道最后变为1的时候开始相邻的数字进行左右交换。">
+<meta name="description" content="¶Shell Sort 希尔排序 分组插入排序：设置步长，将数组分为几组，将分割的两部分混合对应放在一起，对每组进行插入排序 ==步长为1时，希尔排序变成了插入排序== 算法时间复杂度：O(nlogn) ~ O(n * n) 空间复杂度：O(1) 思考：gap每次将长度为N的列表分为N/2部分，a[0]和a[N/2 +1]比较交换，接着合并再分割为N/4,知道最后变为1的时候开始相邻的数字进行左右">
 <meta name="keywords" content="Sort">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sort Algorithm in Java">
 <meta property="og:url" content="https://zzz686970.githsub.io/2017/07/24/Sort-Algorithm-in-Java/index.html">
 <meta property="og:site_name" content="蘑菇">
-<meta property="og:description" content="Shell Sort 希尔排序分组插入排序：设置步长，将数组分为几组，将分割的两部分混合对应放在一起，对每组进行插入排序==步长为1时，希尔排序变成了插入排序==算法时间复杂度：O(nlogn) ~ O(n * n)空间复杂度：O(1) 思考：gap每次将长度为N的列表分为N/2部分，a[0]和a[N/2 +1]比较交换，接着合并再分割为N/4,知道最后变为1的时候开始相邻的数字进行左右交换。">
-<meta property="og:updated_time" content="2017-07-24T14:37:17.000Z">
+<meta property="og:description" content="¶Shell Sort 希尔排序 分组插入排序：设置步长，将数组分为几组，将分割的两部分混合对应放在一起，对每组进行插入排序 ==步长为1时，希尔排序变成了插入排序== 算法时间复杂度：O(nlogn) ~ O(n * n) 空间复杂度：O(1) 思考：gap每次将长度为N的列表分为N/2部分，a[0]和a[N/2 +1]比较交换，接着合并再分割为N/4,知道最后变为1的时候开始相邻的数字进行左右">
+<meta property="og:updated_time" content="2017-07-31T13:22:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sort Algorithm in Java">
-<meta name="twitter:description" content="Shell Sort 希尔排序分组插入排序：设置步长，将数组分为几组，将分割的两部分混合对应放在一起，对每组进行插入排序==步长为1时，希尔排序变成了插入排序==算法时间复杂度：O(nlogn) ~ O(n * n)空间复杂度：O(1) 思考：gap每次将长度为N的列表分为N/2部分，a[0]和a[N/2 +1]比较交换，接着合并再分割为N/4,知道最后变为1的时候开始相邻的数字进行左右交换。">
+<meta name="twitter:description" content="¶Shell Sort 希尔排序 分组插入排序：设置步长，将数组分为几组，将分割的两部分混合对应放在一起，对每组进行插入排序 ==步长为1时，希尔排序变成了插入排序== 算法时间复杂度：O(nlogn) ~ O(n * n) 空间复杂度：O(1) 思考：gap每次将长度为N的列表分为N/2部分，a[0]和a[N/2 +1]比较交换，接着合并再分割为N/4,知道最后变为1的时候开始相邻的数字进行左右">
 <meta name="twitter:creator" content="@[object Object]">
 
 
@@ -374,19 +374,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/24/Sort-Algorithm-in-Java/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/24/Sort-Algorithm-in-Java/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
 
           
           
@@ -408,7 +395,11 @@
       
 
       
-        <h2 id="Shell-Sort-希尔排序"><a href="#Shell-Sort-希尔排序" class="headerlink" title="Shell Sort 希尔排序"></a>Shell Sort 希尔排序</h2><p>分组插入排序：设置步长，将数组分为几组，将分割的两部分混合对应放在一起，对每组进行插入排序<br>==步长为1时，希尔排序变成了插入排序==<br>算法时间复杂度：O(nlogn) ~ O(n * n)<br>空间复杂度：O(1)</p>
+        <h2 id="shell-sort-希尔排序"><a class="header-anchor" href="#shell-sort-希尔排序">¶</a>Shell Sort 希尔排序</h2>
+<p>分组插入排序：设置步长，将数组分为几组，将分割的两部分混合对应放在一起，对每组进行插入排序<br>
+==步长为1时，希尔排序变成了插入排序==<br>
+算法时间复杂度：O(nlogn) ~ O(n * n)<br>
+空间复杂度：O(1)</p>
 <p>思考：gap每次将长度为N的列表分为<code>N/2</code>部分，<code>a[0]</code>和<code>a[N/2 +1]</code>比较交换，接着合并再分割为<code>N/4</code>,知道最后变为1的时候开始相邻的数字进行左右交换。</p>
 <a id="more"></a> 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShellSort</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> []arr =&#123;<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">6</span>&#125;;</div><div class="line">        sort(arr);</div><div class="line">        System.out.println(Arrays.toString(arr));</div><div class="line">        <span class="keyword">int</span> []arr1 =&#123;<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">6</span>&#125;;</div><div class="line">        sort1(arr1);</div><div class="line">        System.out.println(Arrays.toString(arr1));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 希尔排序 针对有序序列在插入时采用交换法</div><div class="line">     * <span class="doctag">@param</span> arr</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span> []arr)</span></span>&#123;</div><div class="line">        <span class="comment">//增量gap，并逐步缩小增量</span></div><div class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> gap=arr.length/<span class="number">2</span>;gap&gt;<span class="number">0</span>;gap/=<span class="number">2</span>)&#123;</div><div class="line">           <span class="comment">//从第gap个元素，逐个对其所在组进行直接插入排序操作</span></div><div class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> i=gap;i&lt;arr.length;i++)&#123;</div><div class="line">               <span class="keyword">int</span> j = i;</div><div class="line">               <span class="keyword">while</span>(j-gap&gt;=<span class="number">0</span> &amp;&amp; arr[j]&lt;arr[j-gap])&#123;</div><div class="line">                   <span class="comment">//插入排序采用交换法</span></div><div class="line">                   swap(arr,j,j-gap);</div><div class="line">                   j-=gap;</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 希尔排序 针对有序序列在插入时采用移动法。</div><div class="line">     * <span class="doctag">@param</span> arr</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort1</span><span class="params">(<span class="keyword">int</span> []arr)</span></span>&#123;</div><div class="line">        <span class="comment">//增量gap，并逐步缩小增量</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> gap=arr.length/<span class="number">2</span>;gap&gt;<span class="number">0</span>;gap/=<span class="number">2</span>)&#123;</div><div class="line">            <span class="comment">//从第gap个元素，逐个对其所在组进行直接插入排序操作</span></div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=gap;i&lt;arr.length;i++)&#123;</div><div class="line">                <span class="keyword">int</span> j = i;</div><div class="line">                <span class="keyword">int</span> temp = arr[j];</div><div class="line">                <span class="keyword">if</span>(arr[j]&lt;arr[j-gap])&#123;</div><div class="line">                    <span class="keyword">while</span>(j-gap&gt;=<span class="number">0</span> &amp;&amp; arr[j-gap] &gt; temp)&#123;</div><div class="line">                        <span class="comment">//移动法</span></div><div class="line">                        arr[j] = arr[j-gap];</div><div class="line">                        j-=gap;</div><div class="line">                    &#125;</div><div class="line">                    arr[j] = temp;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 交换数组元素</div><div class="line">     * <span class="doctag">@param</span> arr</div><div class="line">     * <span class="doctag">@param</span> a</div><div class="line">     * <span class="doctag">@param</span> b</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> []arr,<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">        arr[a] = arr[a]+arr[b];</div><div class="line">        arr[b] = arr[a]-arr[b];</div><div class="line">        arr[a] = arr[a]-arr[b];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -496,17 +487,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -634,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell-Sort-希尔排序"><span class="nav-number">1.</span> <span class="nav-text">Shell Sort 希尔排序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#shell-sort-希尔排序"><span class="nav-number">1.</span> <span class="nav-text">¶Shell Sort 希尔排序</span></a></li></ol></div>
             
 
           </div>
@@ -765,18 +745,6 @@ Total visit  <span id="busuanzi_value_site_uv"></span>  times
       <script id="dsq-count-scr" src="https://zzz686970.disqus.com/count.js" async></script>
     
 
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://zzz686970.githsub.io/2017/07/24/Sort-Algorithm-in-Java/';
-          this.page.identifier = '2017/07/24/Sort-Algorithm-in-Java/';
-          this.page.title = 'Sort Algorithm in Java';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://zzz686970.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
     
 
   

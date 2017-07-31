@@ -674,19 +674,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/24/Sort-Algorithm-in-Java/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/24/Sort-Algorithm-in-Java/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
 
           
           
@@ -709,7 +696,11 @@
 
       
         
-          <h2 id="Shell-Sort-希尔排序"><a href="#Shell-Sort-希尔排序" class="headerlink" title="Shell Sort 希尔排序"></a>Shell Sort 希尔排序</h2><p>分组插入排序：设置步长，将数组分为几组，将分割的两部分混合对应放在一起，对每组进行插入排序<br>==步长为1时，希尔排序变成了插入排序==<br>算法时间复杂度：O(nlogn) ~ O(n * n)<br>空间复杂度：O(1)</p>
+          <h2 id="shell-sort-希尔排序"><a class="header-anchor" href="#shell-sort-希尔排序">¶</a>Shell Sort 希尔排序</h2>
+<p>分组插入排序：设置步长，将数组分为几组，将分割的两部分混合对应放在一起，对每组进行插入排序<br>
+==步长为1时，希尔排序变成了插入排序==<br>
+算法时间复杂度：O(nlogn) ~ O(n * n)<br>
+空间复杂度：O(1)</p>
 <p>思考：gap每次将长度为N的列表分为<code>N/2</code>部分，<code>a[0]</code>和<code>a[N/2 +1]</code>比较交换，接着合并再分割为<code>N/4</code>,知道最后变为1的时候开始相邻的数字进行左右交换。</p>
           <!--noindex-->
           <div class="post-button text-center">
