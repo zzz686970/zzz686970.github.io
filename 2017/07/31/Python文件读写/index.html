@@ -1,0 +1,973 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next mist" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="编程日记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="文件主要分为两种，文本文件和二进制文件（图片、视频）  需要读取非ascii编码的文件，必须以二进制模式打开，再解码">
+<meta name="keywords" content="编程日记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python文件读写">
+<meta property="og:url" content="https://zzz686970.githsub.io/2017/07/31/Python文件读写/index.html">
+<meta property="og:site_name" content="蘑菇">
+<meta property="og:description" content="文件主要分为两种，文本文件和二进制文件（图片、视频）  需要读取非ascii编码的文件，必须以二进制模式打开，再解码">
+<meta property="og:updated_time" content="2017-07-31T12:03:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python文件读写">
+<meta name="twitter:description" content="文件主要分为两种，文本文件和二进制文件（图片、视频）  需要读取非ascii编码的文件，必须以二进制模式打开，再解码">
+<meta name="twitter:creator" content="@[object Object]">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '7FD0NRMWCV',
+      apiKey: '214a0790c076316e65ed1270354a3cc6',
+      indexName: 'zzz686970.github.io',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"搜索","hits_empty":"未能找到与「 ${query} 」相关的内容","hits_stats":"${hits} 条相关记录，耗时 ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zzz686970.githsub.io/2017/07/31/Python文件读写/"/>
+
+
+
+
+
+  <title> Python文件读写 | 蘑菇 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">蘑菇</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-notes">
+          <a href="/notes" rel="section">
+            
+            日记
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://zzz686970.githsub.io/2017/07/31/Python文件读写/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ethan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蘑菇">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python文件读写
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-31T20:02:39+08:00">
+                2017-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>文件主要分为两种，文本文件和二进制文件（图片、视频）</p>
+</blockquote>
+<p>需要读取<strong>非ascii编码</strong>的文件，必须以二进制模式打开，再解码<br><a id="more"></a></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>f = open(<span class="string">'/Users/michael/gbk.txt'</span>, <span class="string">'rb'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>u = f.read().decode(<span class="string">'gbk'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>u</div><div class="line"><span class="string">u'\u6d4b\u8bd5'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> u</div><div class="line">测试</div></pre></td></tr></table></figure>
+<p>换种思路，利用自带模块<code>codecs</code>自动转码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> codecs</div><div class="line"><span class="keyword">with</span> codecs.open(<span class="string">'/Users/michael/gbk.txt'</span>, <span class="string">'r'</span>, <span class="string">'gbk'</span>) <span class="keyword">as</span> f:</div><div class="line">    f.read() <span class="comment"># u'\u6d4b\u8bd5'</span></div></pre></td></tr></table></figure>
+<h2 id="1-读取文件"><a href="#1-读取文件" class="headerlink" title="1. 读取文件"></a>1. 读取文件</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>f.read(size)</div><div class="line">[<span class="string">'1\n'</span>, <span class="string">'00:00:00,000 --&gt; 00:00:02,060\n'</span>, <span class="string">'you\n'</span>]</div></pre></td></tr></table></figure>
+<ul>
+<li><p>read()<br>读取数据并转换为string(text mode)或者bytes(binary mode)<br>size为数值，可为正负，默认读取文件所有内容<br>到达文件底，返回空字符串</p>
+</li>
+<li><p>readline()<br>从文件中读取一行。</p>
+</li>
+<li><p>readlines() 和read()相似读取所有行，但是会将文件按照行分隔符<code>\n</code>解析为列表。  </p>
+</li>
+<li>==这三种方法都会将换行符读入，需要手动去掉==</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'filepath'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">    list1 = f1.readlines()</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(list1):</div><div class="line">    list[i] = list[i].rstrip(<span class="string">'\n'</span>)</div><div class="line">    <span class="comment">## read() 和readlin由于在print时会默认将换行符解析，但还是要做处理</span></div><div class="line">    lines = f.readlines()</div></pre></td></tr></table></figure>
+<h3 id="1-1-传统读取方式"><a href="#1-1-传统读取方式" class="headerlink" title="1.1 传统读取方式"></a>1.1 传统读取方式</h3><p>用了open打开新的文件对象需要及时关闭</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">file = open(<span class="string">"infile"</span>)</div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> file.readline():</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> line:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line">file.close()</div><div class="line"></div><div class="line"><span class="comment">## 按照行读取</span></div><div class="line">file = open(<span class="string">"sample.txt"</span>)</div><div class="line">longest = max(len(line) <span class="keyword">for</span> line <span class="keyword">in</span> file)</div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> file:</div><div class="line">    <span class="comment">## TODO</span></div><div class="line">file.close()</div></pre></td></tr></table></figure>
+<p>==1. readlines 速度最快==</p>
+<ol>
+<li>readline 比 fileinput要快一些</li>
+</ol>
+<h3 id="1-2-比较两个文件相同的ip"><a href="#1-2-比较两个文件相同的ip" class="headerlink" title="1.2 比较两个文件相同的ip"></a>1.2 比较两个文件相同的ip</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> bisect</div><div class="line"></div><div class="line"><span class="keyword">with</span> open(<span class="string">'1.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f1:</div><div class="line">    list1 = f1.readlines()</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(list1):</div><div class="line">    list1[i] = list1[i].strip(<span class="string">'\n'</span>)</div><div class="line"></div><div class="line"><span class="keyword">with</span> open(<span class="string">'2.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f2:</div><div class="line">    list2 = f2.readlines()</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(list2):</div><div class="line">    list2[i] = list2[i].strip(<span class="string">'\n'</span>)</div><div class="line">    <span class="comment"># list2[i].strip()</span></div><div class="line"></div><div class="line">list2.sort()</div><div class="line">length_2 = len(list2)</div><div class="line">same_date = []</div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list1:</div><div class="line">    pos = bisect.bisect_left(list2, i)</div><div class="line">    <span class="keyword">if</span> pos &lt; len(list2) <span class="keyword">and</span> list2[pos] == i:</div><div class="line">        same_data.append(i)</div><div class="line">same_data = list(set(same_data))</div><div class="line">print(same_data)</div></pre></td></tr></table></figure>
+<h2 id="2-写文件"><a href="#2-写文件" class="headerlink" title="2. 写文件"></a>2. 写文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">f1 = open(&apos;test.txt&apos;, &apos;w&apos;):</div><div class="line">    f1.writelines([&apos;1\n&apos;,&apos;2\n&apos;,&apos;3\n&apos;])</div><div class="line"></div><div class="line">with open(&apos;/Users/macbook/test/txt&apos;, &apos;w&apos;) as f:</div><div class="line">    f.write(&apos;&apos;)</div></pre></td></tr></table></figure>
+<p>==writelines()对应readlines(), 针对列表操作，每一个接受的字符串需要加上换行符==</p>
+<ul>
+<li>要写入特定编码的文本文件，请效仿codecs的示例，写入unicode，由codecs自动转换成指定编码。</li>
+</ul>
+<h2 id="3-file-obj-offset-whence-0"><a href="#3-file-obj-offset-whence-0" class="headerlink" title="3. file_obj(offset, whence=0)"></a>3. file_obj(offset, whence=0)</h2><ul>
+<li>offset 偏移量</li>
+<li>whence， 位置，0为文件开头，1当前位置，2为文件尾部</li>
+<li>whence只适用于<code>&#39;r&#39;</code>，对于写或者追加模式不起作用。</li>
+</ul>
+<h2 id="4-字符串编码"><a href="#4-字符串编码" class="headerlink" title="4. 字符串编码"></a>4. 字符串编码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## 传入encoding参数，读取以某种方式编码的文件，errors进行忽视</div><div class="line"></div><div class="line">with open(&apos;test.txt&apos;, encoding = &apos;utf-8&apos;, errors = &apos;ignore&apos;)</div></pre></td></tr></table></figure>
+<h2 id="5-交换文件行位置"><a href="#5-交换文件行位置" class="headerlink" title="5. ==交换文件行位置=="></a>5. ==交换文件行位置==</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'test.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> input, open(<span class="string">'output.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> output:</div><div class="line">    line = input.readline()</div><div class="line">    <span class="keyword">while</span> line:</div><div class="line">        col1, col2 = line.strip().split(<span class="string">','</span>)</div><div class="line">        output.write(<span class="string">'&#123;&#125;,&#123;&#125;\n'</span>).format(col2, col1)</div><div class="line">        line = input.readline()</div></pre></td></tr></table></figure>
+<h2 id="6-文件序列化"><a href="#6-文件序列化" class="headerlink" title="6. 文件序列化"></a>6. 文件序列化</h2><p>pickle主要应用于对json文件的操作</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## py2 有Pickle和高效的cPickle，py3只有Pickle</span></div><div class="line"><span class="keyword">import</span> pickle</div><div class="line">lines = [<span class="string">'I love you'</span>, </div><div class="line">    <span class="string">'I still love you'</span>,</div><div class="line">    <span class="string">'I hate you'</span>]</div><div class="line"><span class="comment">## 序列化并保存, 注意⚠️使用binary模式</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'lines.pkl'</span>,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</div><div class="line">    pickle.dump(lines, f)</div><div class="line"><span class="comment">## 文件读取并反序列化</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'lines.pkl'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</div><div class="line">    lines_back = pickle.load(f)</div><div class="line"></div><div class="line">print(lines_back)</div></pre></td></tr></table></figure>
+<h2 id="7-排序"><a href="#7-排序" class="headerlink" title="7. 排序"></a>7. 排序</h2><p>读取文件并按照某列排序<br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> csv, sys, operator</div><div class="line">data = csv.reader(open(<span class="string">'file'</span>, delimiter = <span class="string">','</span>)</div><div class="line">sortedlist = sorted(data, key = <span class="keyword">lambda</span> x: x[<span class="number">0</span>], int(x[<span class="number">1</span>]))</div><div class="line"><span class="keyword">with</span> open(<span class="string">'test.scv'</span>, <span class="string">'w'</span>, newline = <span class="string">''</span>) <span class="keyword">as</span> f:</div><div class="line">    fileWriter = csv.writer(f, delimiter = <span class="string">','</span>)</div><div class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> fileWriter:</div><div class="line">        fileWriter.writerow(row)</div><div class="line">f.close()</div></pre></td></tr></table></figure></p>
+<p>(<a href="https://stackoverflow.com/questions/3969813/which-parallel-sorting-algorithm-has-the-best-average-case-performance" target="_blank" rel="external">https://stackoverflow.com/questions/3969813/which-parallel-sorting-algorithm-has-the-best-average-case-performance</a>)</p>
+<h2 id="8-文件遍历"><a href="#8-文件遍历" class="headerlink" title="8. 文件遍历"></a>8. 文件遍历</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line">os.listdir(path)</div><div class="line"><span class="comment">#删除文件</span></div><div class="line"><span class="keyword">if</span> os.path.exists(path):</div><div class="line">    os.remove(path)</div><div class="line"><span class="comment">#删除目录</span></div><div class="line">os.rmdir(path)</div><div class="line">os.removedir(path)</div><div class="line"><span class="comment">#删除所有,包括文件和目录</span></div><div class="line">shutil.rmtree(path)</div><div class="line"></div><div class="line"><span class="comment"># 创建新目录</span></div><div class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(path):</div><div class="line">    os.makedir(path)</div></pre></td></tr></table></figure>
+<p>利用环境变量<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open(os.path.expandvars(<span class="string">'$JAVA_HOME/foo.bar'</span>))</div></pre></td></tr></table></figure></p>
+<h2 id="9-python读写json文件"><a href="#9-python读写json文件" class="headerlink" title="9. python读写json文件"></a>9. python读写json文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#输出</span></div><div class="line">cat data.json | python -m json.tool</div><div class="line"></div><div class="line"><span class="keyword">import</span> json</div><div class="line"><span class="comment">#read</span></div><div class="line">data = json.load(open(<span class="string">"./data.json"</span>)</div><div class="line"></div><div class="line"><span class="comment">#write</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'./data.json'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> fp:</div><div class="line">    json.dump(data, fp , indent=<span class="number">2</span>)</div><div class="line">    </div><div class="line"><span class="comment">#dump as a string</span></div><div class="line">print(json.dumps(foo,indent = <span class="number">4</span>)</div></pre></td></tr></table></figure>
+<h2 id="10-python读写csv文件"><a href="#10-python读写csv文件" class="headerlink" title="10. python读写csv文件"></a>10. python读写csv文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> csv</div><div class="line"><span class="keyword">with</span> open(<span class="string">'input.csv'</span>,<span class="string">'rb'</span>) <span class="keyword">as</span> f:</div><div class="line">    reader = csv.reader(f, delimiter = <span class="string">','</span>)</div><div class="line">    header = next(reader)</div><div class="line">    <span class="comment">#skip the header</span></div><div class="line">    noheader = next(reader, none)</div><div class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</div><div class="line">        print(row)</div><div class="line">    <span class="comment">#print list</span></div><div class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</div><div class="line">        print(list(zip(header, row)</div><div class="line">    <span class="comment">#print dict</span></div><div class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</div><div class="line">        print(dict(zip(header, row)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#write</span></div><div class="line">writer = csv.writer(open(<span class="string">'output.csv'</span>,<span class="string">'wb'</span>) , delimiter = <span class="string">','</span>)</div><div class="line">write.writerow([<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>)]</div></pre></td></tr></table></figure>
+<h3 id="10-1-从hdfs中读取csv"><a href="#10-1-从hdfs中读取csv" class="headerlink" title="10.1 从hdfs中读取csv"></a>10.1 从hdfs中读取csv</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#read csv from HDFS</span></div><div class="line">result = subprocess.run([<span class="string">'hadoop'</span>,<span class="string">'fs'</span>,<span class="string">'-text'</span>,<span class="string">'/path/to/data/part*'</span>], stdout = subprocess.PIPE)</div><div class="line">lines = result.stdout.decode().strip().spilit(<span class="string">'\n'</span>)</div><div class="line">reader = csv.reader(lines)</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<ol>
+<li><a href="http://www.cnblogs.com/zywscq/p/5441145.html" target="_blank" rel="external">python文件读写小结</a></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431917715991ef1ebc19d15a4afdace1169a464eecc2000" target="_blank" rel="external">文件读写</a></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qrcode.png" alt="Ethan wechat" style="width: 200px; max-width: 100%;"/>
+    <div>个人小站</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/编程日记/" rel="tag"># 编程日记</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/25/python-自带函数/" rel="prev" title="python 自带函数">
+                python 自带函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Ethan" />
+          <p class="site-author-name" itemprop="name">Ethan</p>
+           
+              <p class="site-description motion-element" itemprop="description">喜欢，就勇敢一点</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zzz686970" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/zzz686970" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-读取文件"><span class="nav-number">1.</span> <span class="nav-text">1. 读取文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-传统读取方式"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 传统读取方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-比较两个文件相同的ip"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 比较两个文件相同的ip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-写文件"><span class="nav-number">2.</span> <span class="nav-text">2. 写文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-file-obj-offset-whence-0"><span class="nav-number">3.</span> <span class="nav-text">3. file_obj(offset, whence=0)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-字符串编码"><span class="nav-number">4.</span> <span class="nav-text">4. 字符串编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-交换文件行位置"><span class="nav-number">5.</span> <span class="nav-text">5. ==交换文件行位置==</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-文件序列化"><span class="nav-number">6.</span> <span class="nav-text">6. 文件序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-排序"><span class="nav-number">7.</span> <span class="nav-text">7. 排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-文件遍历"><span class="nav-number">8.</span> <span class="nav-text">8. 文件遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-python读写json文件"><span class="nav-number">9.</span> <span class="nav-text">9. python读写json文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-python读写csv文件"><span class="nav-number">10.</span> <span class="nav-text">10. python读写csv文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-从hdfs中读取csv"><span class="nav-number">10.1.</span> <span class="nav-text">10.1 从hdfs中读取csv</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ethan</span>
+</div>
+
+
+<div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+Total visit  <span id="busuanzi_value_site_uv"></span>  times
+<div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
