@@ -69,7 +69,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="编程日记," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -85,17 +85,17 @@
 
 
 
-<meta name="description" content="文件主要分为两种，文本文件和二进制文件（图片、视频）  需要读取非ascii编码的文件，必须以二进制模式打开，再解码">
-<meta name="keywords" content="编程日记">
+<meta name="description" content="文件主要分为两种，文本文件和二进制文件（图片、视频）  需要读取非ascii编码的文件，必须以二进制模式打开，再解码 123456&amp;gt;&amp;gt;&amp;gt; f = open(&apos;/Users/michael/gbk.txt&apos;, &apos;rb&apos;)&amp;gt;&amp;gt;&amp;gt; u = f.read().decode(&apos;gbk&apos;)&amp;gt;&amp;gt;&amp;gt; uu&apos;\u6d4b\u8bd5&apos;&amp;gt;&amp;gt;&amp;gt;">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python文件读写">
-<meta property="og:url" content="https://zzz686970.githsub.io/2017/07/31/Python文件读写/index.html">
+<meta property="og:title" content="python IO笔记">
+<meta property="og:url" content="https://zzz686970.githsub.io/2017/08/10/python-IO笔记/index.html">
 <meta property="og:site_name" content="蘑菇">
-<meta property="og:description" content="文件主要分为两种，文本文件和二进制文件（图片、视频）  需要读取非ascii编码的文件，必须以二进制模式打开，再解码">
-<meta property="og:updated_time" content="2017-08-01T10:04:40.000Z">
+<meta property="og:description" content="文件主要分为两种，文本文件和二进制文件（图片、视频）  需要读取非ascii编码的文件，必须以二进制模式打开，再解码 123456&amp;gt;&amp;gt;&amp;gt; f = open(&apos;/Users/michael/gbk.txt&apos;, &apos;rb&apos;)&amp;gt;&amp;gt;&amp;gt; u = f.read().decode(&apos;gbk&apos;)&amp;gt;&amp;gt;&amp;gt; uu&apos;\u6d4b\u8bd5&apos;&amp;gt;&amp;gt;&amp;gt;">
+<meta property="og:updated_time" content="2017-08-10T09:12:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python文件读写">
-<meta name="twitter:description" content="文件主要分为两种，文本文件和二进制文件（图片、视频）  需要读取非ascii编码的文件，必须以二进制模式打开，再解码">
+<meta name="twitter:title" content="python IO笔记">
+<meta name="twitter:description" content="文件主要分为两种，文本文件和二进制文件（图片、视频）  需要读取非ascii编码的文件，必须以二进制模式打开，再解码 123456&amp;gt;&amp;gt;&amp;gt; f = open(&apos;/Users/michael/gbk.txt&apos;, &apos;rb&apos;)&amp;gt;&amp;gt;&amp;gt; u = f.read().decode(&apos;gbk&apos;)&amp;gt;&amp;gt;&amp;gt; uu&apos;\u6d4b\u8bd5&apos;&amp;gt;&amp;gt;&amp;gt;">
 <meta name="twitter:creator" content="@[object Object]">
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://zzz686970.githsub.io/2017/07/31/Python文件读写/"/>
+  <link rel="canonical" href="https://zzz686970.githsub.io/2017/08/10/python-IO笔记/"/>
 
 
 
 
 
-  <title> Python文件读写 | 蘑菇 </title>
+  <title> python IO笔记 | 蘑菇 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -303,7 +303,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://zzz686970.githsub.io/2017/07/31/Python文件读写/">
+    <link itemprop="mainEntityOfPage" href="https://zzz686970.githsub.io/2017/08/10/python-IO笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ethan">
@@ -324,7 +324,7 @@
             
             
               
-                Python文件读写
+                python IO笔记
               
             
           </h1>
@@ -339,8 +339,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-31T20:02:39+08:00">
-                2017-07-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-10T17:11:29+08:00">
+                2017-08-10
               </time>
             
 
@@ -362,8 +362,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
                   </a>
                 </span>
 
@@ -380,9 +380,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/31/Python文件读写/#comments" itemprop="discussionUrl">
+                <a href="/2017/08/10/python-IO笔记/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/31/Python文件读写/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/08/10/python-IO笔记/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -412,10 +412,10 @@
 <p>文件主要分为两种，文本文件和二进制文件（图片、视频）</p>
 </blockquote>
 <p>需要读取<strong>非ascii编码</strong>的文件，必须以二进制模式打开，再解码</p>
-<a id="more"></a>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>f = open(<span class="string">'/Users/michael/gbk.txt'</span>, <span class="string">'rb'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>u = f.read().decode(<span class="string">'gbk'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>u</div><div class="line"><span class="string">u'\u6d4b\u8bd5'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> u</div><div class="line">测试</div></pre></td></tr></table></figure>
 <p>换种思路，利用自带模块<code>codecs</code>自动转码</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> codecs</div><div class="line"><span class="keyword">with</span> codecs.open(<span class="string">'/Users/michael/gbk.txt'</span>, <span class="string">'r'</span>, <span class="string">'gbk'</span>) <span class="keyword">as</span> f:</div><div class="line">    f.read() <span class="comment"># u'\u6d4b\u8bd5'</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="1-读取文件"><a class="header-anchor" href="#1-读取文件">¶</a>1. 读取文件</h2>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>f.read(size)</div><div class="line">[<span class="string">'1\n'</span>, <span class="string">'00:00:00,000 --&gt; 00:00:02,060\n'</span>, <span class="string">'you\n'</span>]</div></pre></td></tr></table></figure>
 <ul>
@@ -446,6 +446,8 @@ size为数值，可为正负，默认读取文件所有内容<br>
 </ol>
 <h3 id="1-2-比较两个文件相同的ip"><a class="header-anchor" href="#1-2-比较两个文件相同的ip">¶</a>1.2 比较两个文件相同的ip</h3>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> bisect</div><div class="line"></div><div class="line"><span class="keyword">with</span> open(<span class="string">'1.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f1:</div><div class="line">    list1 = f1.readlines()</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(list1):</div><div class="line">    list1[i] = list1[i].strip(<span class="string">'\n'</span>)</div><div class="line"></div><div class="line"><span class="keyword">with</span> open(<span class="string">'2.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f2:</div><div class="line">    list2 = f2.readlines()</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(list2):</div><div class="line">    list2[i] = list2[i].strip(<span class="string">'\n'</span>)</div><div class="line">    <span class="comment"># list2[i].strip()</span></div><div class="line"></div><div class="line">list2.sort()</div><div class="line">length_2 = len(list2)</div><div class="line">same_date = []</div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list1:</div><div class="line">    pos = bisect.bisect_left(list2, i)</div><div class="line">    <span class="keyword">if</span> pos &lt; len(list2) <span class="keyword">and</span> list2[pos] == i:</div><div class="line">        same_data.append(i)</div><div class="line">same_data = list(set(same_data))</div><div class="line">print(same_data)</div></pre></td></tr></table></figure>
+<h3 id="1-3-读取特定文件再排序输出"><a class="header-anchor" href="#1-3-读取特定文件再排序输出">¶</a>1.3 读取特定文件再排序输出</h3>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">result = list()</div><div class="line"><span class="keyword">with</span> open(<span class="string">'file'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</div><div class="line">        line = line.strip()</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> len(line) <span class="keyword">or</span> line.startswith(<span class="string">'#'</span>):</div><div class="line">            <span class="keyword">continue</span></div><div class="line">        result.append(line)</div><div class="line">result.sort()</div><div class="line">open(<span class="string">'output'</span>,<span class="string">'w'</span>).write(<span class="string">'%s'</span> %<span class="string">'\n'</span>.join(result))</div></pre></td></tr></table></figure>
 <h2 id="2-写文件"><a class="header-anchor" href="#2-写文件">¶</a>2. 写文件</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">f1 = open(&apos;test.txt&apos;, &apos;w&apos;):</div><div class="line">    f1.writelines([&apos;1\n&apos;,&apos;2\n&apos;,&apos;3\n&apos;])</div><div class="line"></div><div class="line">with open(&apos;/Users/macbook/test/txt&apos;, &apos;w&apos;) as f:</div><div class="line">    f.write(&apos;&apos;)</div></pre></td></tr></table></figure>
 <ul>
@@ -482,7 +484,7 @@ pickle主要应用于对json文件的操作</p>
 <p>(<a href="https://stackoverflow.com/questions/3969813/which-parallel-sorting-algorithm-has-the-best-average-case-performance" target="_blank" rel="external">https://stackoverflow.com/questions/3969813/which-parallel-sorting-algorithm-has-the-best-average-case-performance</a>)</p>
 <h2 id="8-stringio-和-bytesio"><a class="header-anchor" href="#8-stringio-和-bytesio">¶</a>8. StringIO 和 BytesIO</h2>
 <p>从内存中读写</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> io <span class="keyword">import</span> StringIO</div><div class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</div><div class="line"></div><div class="line">f = StringIO()</div><div class="line">f.write(<span class="string">'hello'</span>)</div><div class="line">f.wwrite(<span class="string">'world!'</span>)</div><div class="line">print(f.getvalue())</div><div class="line"><span class="comment">## 读</span></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    s = f.readline()</div><div class="line">    <span class="keyword">if</span> s == <span class="string">''</span>:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    print(s.strip())</div><div class="line"></div><div class="line">BytesIO</div><div class="line">f.write(<span class="string">'中'</span>.encode(<span class="string">'utf-8'</span>))</div><div class="line">print(f.getvalue())</div><div class="line"></div><div class="line"><span class="comment">## 读</span></div><div class="line">f.read()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> io <span class="keyword">import</span> StringIO</div><div class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</div><div class="line"></div><div class="line">f = StringIO()</div><div class="line">f.write(<span class="string">'hello'</span>)</div><div class="line">f.wwrite(<span class="string">'world!'</span>)</div><div class="line">print(f.getvalue())</div><div class="line"><span class="comment">## 读</span></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    s = f.readline()</div><div class="line">    <span class="keyword">if</span> s == <span class="string">''</span>:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    print(s.strip())</div><div class="line"></div><div class="line"><span class="comment">## </span></div><div class="line">f = BytesIO()</div><div class="line">f.write(<span class="string">'中'</span>.encode(<span class="string">'utf-8'</span>))</div><div class="line">print(f.getvalue())</div><div class="line"></div><div class="line"><span class="comment">## 读</span></div><div class="line">f.read()</div></pre></td></tr></table></figure>
 <p>如果对文件写入需要check seek的位置，可以通过f.readline()将seek的位置定位到最后，也可以用f.seek(n)</p>
 <h2 id="9-python读写json文件"><a class="header-anchor" href="#9-python读写json文件">¶</a>9. python读写json文件</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#输出</span></div><div class="line">cat data.json | python -m json.tool</div><div class="line"></div><div class="line"><span class="keyword">import</span> json</div><div class="line"><span class="comment">#read</span></div><div class="line">data = json.load(open(<span class="string">"./data.json"</span>)</div><div class="line"></div><div class="line"><span class="comment">#write</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'./data.json'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> fp:</div><div class="line">    json.dump(data, fp , indent=<span class="number">2</span>)</div><div class="line">    </div><div class="line"><span class="comment">#dump as a string</span></div><div class="line">print(json.dumps(foo,indent = <span class="number">4</span>)</div></pre></td></tr></table></figure>
@@ -536,7 +538,7 @@ pickle主要应用于对json文件的操作</p>
       
         <div class="post-tags">
           
-            <a href="/tags/编程日记/" rel="tag"># 编程日记</a>
+            <a href="/tags/python/" rel="tag"># python</a>
           
         </div>
       
@@ -549,18 +551,14 @@ pickle主要应用于对json文件的操作</p>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/10/merge-lines/" rel="next" title="merge lines">
-                <i class="fa fa-chevron-left"></i> merge lines
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/25/python-自带函数/" rel="prev" title="python 自带函数">
-                python 自带函数 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/10/merge-lines/" rel="prev" title="merge lines">
+                merge lines <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -723,7 +721,7 @@ pickle主要应用于对json文件的操作</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-读取文件"><span class="nav-number">1.</span> <span class="nav-text">¶1. 读取文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-传统读取方式"><span class="nav-number">1.1.</span> <span class="nav-text">¶1.1 传统读取方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-比较两个文件相同的ip"><span class="nav-number">1.2.</span> <span class="nav-text">¶1.2 比较两个文件相同的ip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-写文件"><span class="nav-number">2.</span> <span class="nav-text">¶2. 写文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-file-obj-offset-whence-0"><span class="nav-number">3.</span> <span class="nav-text">¶3. file_obj(offset, whence=0)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-字符串编码"><span class="nav-number">4.</span> <span class="nav-text">¶4. 字符串编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-交换文件行位置"><span class="nav-number">5.</span> <span class="nav-text">¶5. 交换文件行位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-文件序列化"><span class="nav-number">6.</span> <span class="nav-text">¶6. 文件序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-排序"><span class="nav-number">7.</span> <span class="nav-text">¶7. 排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-stringio-和-bytesio"><span class="nav-number">8.</span> <span class="nav-text">¶8. StringIO 和 BytesIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-python读写json文件"><span class="nav-number">9.</span> <span class="nav-text">¶9. python读写json文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-python读写csv文件"><span class="nav-number">10.</span> <span class="nav-text">¶10. python读写csv文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-从hdfs中读取csv"><span class="nav-number">10.1.</span> <span class="nav-text">¶10.1 从hdfs中读取csv</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-读取文件"><span class="nav-number">1.</span> <span class="nav-text">¶1. 读取文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-传统读取方式"><span class="nav-number">1.1.</span> <span class="nav-text">¶1.1 传统读取方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-比较两个文件相同的ip"><span class="nav-number">1.2.</span> <span class="nav-text">¶1.2 比较两个文件相同的ip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-读取特定文件再排序输出"><span class="nav-number">1.3.</span> <span class="nav-text">¶1.3 读取特定文件再排序输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-写文件"><span class="nav-number">2.</span> <span class="nav-text">¶2. 写文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-file-obj-offset-whence-0"><span class="nav-number">3.</span> <span class="nav-text">¶3. file_obj(offset, whence=0)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-字符串编码"><span class="nav-number">4.</span> <span class="nav-text">¶4. 字符串编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-交换文件行位置"><span class="nav-number">5.</span> <span class="nav-text">¶5. 交换文件行位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-文件序列化"><span class="nav-number">6.</span> <span class="nav-text">¶6. 文件序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-排序"><span class="nav-number">7.</span> <span class="nav-text">¶7. 排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-stringio-和-bytesio"><span class="nav-number">8.</span> <span class="nav-text">¶8. StringIO 和 BytesIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-python读写json文件"><span class="nav-number">9.</span> <span class="nav-text">¶9. python读写json文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-python读写csv文件"><span class="nav-number">10.</span> <span class="nav-text">¶10. python读写csv文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-从hdfs中读取csv"><span class="nav-number">10.1.</span> <span class="nav-text">¶10.1 从hdfs中读取csv</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -857,9 +855,9 @@ Total visit  <span id="busuanzi_value_site_uv"></span>  times
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://zzz686970.githsub.io/2017/07/31/Python文件读写/';
-          this.page.identifier = '2017/07/31/Python文件读写/';
-          this.page.title = 'Python文件读写';
+          this.page.url = 'https://zzz686970.githsub.io/2017/08/10/python-IO笔记/';
+          this.page.identifier = '2017/08/10/python-IO笔记/';
+          this.page.title = 'python IO笔记';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://zzz686970.disqus.com/embed.js';
