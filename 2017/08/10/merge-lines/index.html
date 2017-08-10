@@ -85,17 +85,17 @@
 
 
 
-<meta name="description" content="¶根据行的特征进行合并 123456data = open(&apos;file.txt&apos;).read.split(&apos;\n&apos;)for i, line in enumerate(data):    if line.startswith(&quot;:&quot;):        data[i-1] = data[i-1] + line        data.pop[i]print(&apos;\n&apos;.join(data)">
+<meta name="description" content="¶根据行的特征进行合并 123456data = open(&apos;file.txt&apos;).read.split(&apos;\n&apos;)for i, line in enumerate(data):    if line.startswith(&quot;:&quot;):        data[i-1] = data[i-1] + line        data.pop[i]print(&apos;\n&apos;.join(data) ¶根据行数转">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="merge lines">
 <meta property="og:url" content="https://zzz686970.githsub.io/2017/08/10/merge-lines/index.html">
 <meta property="og:site_name" content="蘑菇">
-<meta property="og:description" content="¶根据行的特征进行合并 123456data = open(&apos;file.txt&apos;).read.split(&apos;\n&apos;)for i, line in enumerate(data):    if line.startswith(&quot;:&quot;):        data[i-1] = data[i-1] + line        data.pop[i]print(&apos;\n&apos;.join(data)">
-<meta property="og:updated_time" content="2017-08-10T08:30:43.000Z">
+<meta property="og:description" content="¶根据行的特征进行合并 123456data = open(&apos;file.txt&apos;).read.split(&apos;\n&apos;)for i, line in enumerate(data):    if line.startswith(&quot;:&quot;):        data[i-1] = data[i-1] + line        data.pop[i]print(&apos;\n&apos;.join(data) ¶根据行数转">
+<meta property="og:updated_time" content="2017-08-10T09:33:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="merge lines">
-<meta name="twitter:description" content="¶根据行的特征进行合并 123456data = open(&apos;file.txt&apos;).read.split(&apos;\n&apos;)for i, line in enumerate(data):    if line.startswith(&quot;:&quot;):        data[i-1] = data[i-1] + line        data.pop[i]print(&apos;\n&apos;.join(data)">
+<meta name="twitter:description" content="¶根据行的特征进行合并 123456data = open(&apos;file.txt&apos;).read.split(&apos;\n&apos;)for i, line in enumerate(data):    if line.startswith(&quot;:&quot;):        data[i-1] = data[i-1] + line        data.pop[i]print(&apos;\n&apos;.join(data) ¶根据行数转">
 <meta name="twitter:creator" content="@[object Object]">
 
 
@@ -410,11 +410,11 @@
       
         <h2 id="根据行的特征进行合并"><a class="header-anchor" href="#根据行的特征进行合并">¶</a>根据行的特征进行合并</h2>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data = open(<span class="string">'file.txt'</span>).read.split(<span class="string">'\n'</span>)</div><div class="line"><span class="keyword">for</span> i, line <span class="keyword">in</span> enumerate(data):</div><div class="line">    <span class="keyword">if</span> line.startswith(<span class="string">":"</span>):</div><div class="line">        data[i<span class="number">-1</span>] = data[i<span class="number">-1</span>] + line</div><div class="line">        data.pop[i]</div><div class="line">print(<span class="string">'\n'</span>.join(data)</div></pre></td></tr></table></figure>
-<a id="more"></a>
 <h2 id="根据行数转化相应的列"><a class="header-anchor" href="#根据行数转化相应的列">¶</a>根据行数转化相应的列</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">input:</div><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td></tr></table></figure>
 <p>转换为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">output</div><div class="line">1,2,3</div><div class="line">4,5,6</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>需要利用控制行来换行</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">data_list = []</div><div class="line"><span class="keyword">with</span> open(filepath, <span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">    file = f.read()</div><div class="line">    data_list.append(file)</div><div class="line"></div><div class="line"><span class="comment">## 设置步长为3</span></div><div class="line">three_lines = range(<span class="number">0</span>, len(data_list), <span class="number">3</span>)</div><div class="line"><span class="keyword">with</span> open(<span class="string">'output.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</div><div class="line">    <span class="keyword">for</span> num, line <span class="keyword">in</span> enumerate(data_list):</div><div class="line">        <span class="keyword">if</span> num <span class="keyword">in</span> three_lines:</div><div class="line">            f.write(<span class="string">','</span>.join(data_list[num:num+<span class="number">3</span>])+<span class="string">'\n'</span>)</div></pre></td></tr></table></figure>
 <h2 id="计算文件行数"><a class="header-anchor" href="#计算文件行数">¶</a>计算文件行数</h2>
@@ -424,6 +424,8 @@
 <li>再次说一下<code>read</code>，将文件放入一个字符串变量进行后续操作，对于大文件的话需要慎重使用。</li>
 </ul>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 初始化count2</span></div><div class="line">count2 = <span class="number">-1</span></div><div class="line"><span class="keyword">for</span> count2, line <span class="keyword">in</span> enumerate(open(<span class="string">'/Users/macbook/Downloads/ascii_dora2.txt'</span>)):</div><div class="line">    <span class="keyword">pass</span></div><div class="line">count2 += <span class="number">1</span></div><div class="line">print(count2)</div><div class="line"></div><div class="line"><span class="comment">## method 2</span></div><div class="line"><span class="comment">### 统计有多少换行符，同readlines</span></div><div class="line">count3 = <span class="number">0</span></div><div class="line">file1 = open(<span class="string">'/Users/macbook/Downloads/ascii_dora2.txt'</span>, <span class="string">'r'</span>)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    buffer = file1.read(<span class="number">8192</span>*<span class="number">1024</span>)</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> buffer:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    count3 += buffer.count(<span class="string">'\n'</span>)</div><div class="line">file1.close()</div><div class="line">print(count3)</div></pre></td></tr></table></figure>
+<h2 id="缓存行"><a class="header-anchor" href="#缓存行">¶</a>缓存行</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> linecache</div><div class="line"><span class="comment">## 读取指定行</span></div><div class="line">count = linecache.getline(file, linenum)</div><div class="line"><span class="comment">## 读取文件内容</span></div><div class="line">str = linecache.getlines(file)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -645,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#根据行的特征进行合并"><span class="nav-number">1.</span> <span class="nav-text">¶根据行的特征进行合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据行数转化相应的列"><span class="nav-number">2.</span> <span class="nav-text">¶根据行数转化相应的列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算文件行数"><span class="nav-number">3.</span> <span class="nav-text">¶计算文件行数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#根据行的特征进行合并"><span class="nav-number">1.</span> <span class="nav-text">¶根据行的特征进行合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据行数转化相应的列"><span class="nav-number">2.</span> <span class="nav-text">¶根据行数转化相应的列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算文件行数"><span class="nav-number">3.</span> <span class="nav-text">¶计算文件行数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存行"><span class="nav-number">4.</span> <span class="nav-text">¶缓存行</span></a></li></ol></div>
             
 
           </div>
