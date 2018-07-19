@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -86,7 +86,7 @@
 <meta property="og:url" content="https://zzz686970.github.io/2017/07/24/Sort-Algorithm-in-Java/index.html">
 <meta property="og:site_name" content="蘑菇">
 <meta property="og:description" content="¶Shell Sort 希尔排序 分组插入排序：设置步长，将数组分为几组，将分割的两部分混合对应放在一起，对每组进行插入排序 ==步长为1时，希尔排序变成了插入排序== 算法时间复杂度：O(nlogn) ~ O(n * n) 空间复杂度：O(1) 思考：gap每次将长度为N的列表分为N/2部分，a[0]和a[N/2 +1]比较交换，接着合并再分割为N/4,知道最后变为1的时候开始相邻的数字进行左右">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-07-31T13:24:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sort Algorithm in Java">
@@ -106,7 +106,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '7FD0NRMWCV',
@@ -138,7 +138,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -186,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            Home
           </a>
         </li>
       
@@ -196,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            关于
+            About
           </a>
         </li>
       
@@ -206,7 +206,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -216,7 +216,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            分类
+            Categories
           </a>
         </li>
       
@@ -226,7 +226,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -290,9 +290,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T22:33:39+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-24T22:33:39+08:00">
                 2017-07-24
               </time>
             
@@ -311,7 +311,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -341,10 +341,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
-                  462 words
+                <span title="Words count in article">
+                  527 words
                 </span>
               
 
@@ -357,10 +357,10 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
-                  2 mins
+                <span title="Reading time">
+                  3 mins
                 </span>
               
             </div>
@@ -388,8 +388,8 @@
 空间复杂度：O(1)</p>
 <p>思考：gap每次将长度为N的列表分为<code>N/2</code>部分，<code>a[0]</code>和<code>a[N/2 +1]</code>比较交换，接着合并再分割为<code>N/4</code>,知道最后变为1的时候开始相邻的数字进行左右交换。</p>
 <a id="more"></a> 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShellSort</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> []arr =&#123;<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">6</span>&#125;;</div><div class="line">        sort(arr);</div><div class="line">        System.out.println(Arrays.toString(arr));</div><div class="line">        <span class="keyword">int</span> []arr1 =&#123;<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">6</span>&#125;;</div><div class="line">        sort1(arr1);</div><div class="line">        System.out.println(Arrays.toString(arr1));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 希尔排序 针对有序序列在插入时采用交换法</div><div class="line">     * <span class="doctag">@param</span> arr</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span> []arr)</span></span>&#123;</div><div class="line">        <span class="comment">//增量gap，并逐步缩小增量</span></div><div class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> gap=arr.length/<span class="number">2</span>;gap&gt;<span class="number">0</span>;gap/=<span class="number">2</span>)&#123;</div><div class="line">           <span class="comment">//从第gap个元素，逐个对其所在组进行直接插入排序操作</span></div><div class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> i=gap;i&lt;arr.length;i++)&#123;</div><div class="line">               <span class="keyword">int</span> j = i;</div><div class="line">               <span class="keyword">while</span>(j-gap&gt;=<span class="number">0</span> &amp;&amp; arr[j]&lt;arr[j-gap])&#123;</div><div class="line">                   <span class="comment">//插入排序采用交换法</span></div><div class="line">                   swap(arr,j,j-gap);</div><div class="line">                   j-=gap;</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 希尔排序 针对有序序列在插入时采用移动法。</div><div class="line">     * <span class="doctag">@param</span> arr</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort1</span><span class="params">(<span class="keyword">int</span> []arr)</span></span>&#123;</div><div class="line">        <span class="comment">//增量gap，并逐步缩小增量</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> gap=arr.length/<span class="number">2</span>;gap&gt;<span class="number">0</span>;gap/=<span class="number">2</span>)&#123;</div><div class="line">            <span class="comment">//从第gap个元素，逐个对其所在组进行直接插入排序操作</span></div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=gap;i&lt;arr.length;i++)&#123;</div><div class="line">                <span class="keyword">int</span> j = i;</div><div class="line">                <span class="keyword">int</span> temp = arr[j];</div><div class="line">                <span class="keyword">if</span>(arr[j]&lt;arr[j-gap])&#123;</div><div class="line">                    <span class="keyword">while</span>(j-gap&gt;=<span class="number">0</span> &amp;&amp; arr[j-gap] &gt; temp)&#123;</div><div class="line">                        <span class="comment">//移动法</span></div><div class="line">                        arr[j] = arr[j-gap];</div><div class="line">                        j-=gap;</div><div class="line">                    &#125;</div><div class="line">                    arr[j] = temp;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 交换数组元素</div><div class="line">     * <span class="doctag">@param</span> arr</div><div class="line">     * <span class="doctag">@param</span> a</div><div class="line">     * <span class="doctag">@param</span> b</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> []arr,<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">        arr[a] = arr[a]+arr[b];</div><div class="line">        arr[b] = arr[a]-arr[b];</div><div class="line">        arr[a] = arr[a]-arr[b];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>转载自：<a href="http://www.cnblogs.com/chengxiao/p/6104371.html" target="_blank" rel="external">http://www.cnblogs.com/chengxiao/p/6104371.html</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShellSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> []arr =&#123;<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">6</span>&#125;;</span><br><span class="line">        sort(arr);</span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line">        <span class="keyword">int</span> []arr1 =&#123;<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">6</span>&#125;;</span><br><span class="line">        sort1(arr1);</span><br><span class="line">        System.out.println(Arrays.toString(arr1));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 希尔排序 针对有序序列在插入时采用交换法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span> []arr)</span></span>&#123;</span><br><span class="line">        <span class="comment">//增量gap，并逐步缩小增量</span></span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> gap=arr.length/<span class="number">2</span>;gap&gt;<span class="number">0</span>;gap/=<span class="number">2</span>)&#123;</span><br><span class="line">           <span class="comment">//从第gap个元素，逐个对其所在组进行直接插入排序操作</span></span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> i=gap;i&lt;arr.length;i++)&#123;</span><br><span class="line">               <span class="keyword">int</span> j = i;</span><br><span class="line">               <span class="keyword">while</span>(j-gap&gt;=<span class="number">0</span> &amp;&amp; arr[j]&lt;arr[j-gap])&#123;</span><br><span class="line">                   <span class="comment">//插入排序采用交换法</span></span><br><span class="line">                   swap(arr,j,j-gap);</span><br><span class="line">                   j-=gap;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 希尔排序 针对有序序列在插入时采用移动法。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort1</span><span class="params">(<span class="keyword">int</span> []arr)</span></span>&#123;</span><br><span class="line">        <span class="comment">//增量gap，并逐步缩小增量</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> gap=arr.length/<span class="number">2</span>;gap&gt;<span class="number">0</span>;gap/=<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="comment">//从第gap个元素，逐个对其所在组进行直接插入排序操作</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=gap;i&lt;arr.length;i++)&#123;</span><br><span class="line">                <span class="keyword">int</span> j = i;</span><br><span class="line">                <span class="keyword">int</span> temp = arr[j];</span><br><span class="line">                <span class="keyword">if</span>(arr[j]&lt;arr[j-gap])&#123;</span><br><span class="line">                    <span class="keyword">while</span>(j-gap&gt;=<span class="number">0</span> &amp;&amp; arr[j-gap] &gt; temp)&#123;</span><br><span class="line">                        <span class="comment">//移动法</span></span><br><span class="line">                        arr[j] = arr[j-gap];</span><br><span class="line">                        j-=gap;</span><br><span class="line">                    &#125;</span><br><span class="line">                    arr[j] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 交换数组元素</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> a</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> b</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> []arr,<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">        arr[a] = arr[a]+arr[b];</span><br><span class="line">        arr[b] = arr[a]-arr[b];</span><br><span class="line">        arr[a] = arr[a]-arr[b];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>转载自：<a href="http://www.cnblogs.com/chengxiao/p/6104371.html" target="_blank" rel="noopener">http://www.cnblogs.com/chengxiao/p/6104371.html</a></p>
 
       
     </div>
@@ -482,10 +482,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+            Overview
           </li>
         </ul>
       
@@ -510,7 +510,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">20</span>
-                  <span class="site-state-item-name">日志</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -521,7 +521,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">6</span>
-                  <span class="site-state-item-name">分类</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -532,7 +532,7 @@
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">13</span>
-                  <span class="site-state-item-name">标签</span>
+                  <span class="site-state-item-name">tags</span>
                 </a>
               </div>
             
@@ -624,7 +624,7 @@
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -632,7 +632,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 

@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -85,7 +85,7 @@
 <meta property="og:url" content="https://zzz686970.github.io/2017/07/25/python-自带函数/index.html">
 <meta property="og:site_name" content="蘑菇">
 <meta property="og:description" content="逐渐整理python自带函数的用法，自己踩过的一些坑">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-07-25T15:50:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 自带函数">
@@ -105,7 +105,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '7FD0NRMWCV',
@@ -137,7 +137,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            Home
           </a>
         </li>
       
@@ -195,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            关于
+            About
           </a>
         </li>
       
@@ -205,7 +205,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -215,7 +215,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            分类
+            Categories
           </a>
         </li>
       
@@ -225,7 +225,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -289,9 +289,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T23:49:15+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-25T23:49:15+08:00">
                 2017-07-25
               </time>
             
@@ -320,10 +320,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
-                  469 words
+                <span title="Words count in article">
+                  523 words
                 </span>
               
 
@@ -336,10 +336,10 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
-                  2 mins
+                <span title="Reading time">
+                  3 mins
                 </span>
               
             </div>
@@ -389,16 +389,16 @@
 </blockquote>
 <h2 id="list-to-str"><a class="header-anchor" href="#list-to-str">¶</a>list to str</h2>
 <p>如果需要将str与list打印在一起，用<code>+</code>，前提是将list转为str先</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&quot; &quot;.join([&apos;I&apos;, &apos;Love&apos;, &apos;You&apos;])</div><div class="line"></div><div class="line">## or string.join, default separator is a single space</div><div class="line"></div><div class="line">import string</div><div class="line">string.join(list, sep=&apos;,&apos;)</div><div class="line"></div><div class="line">## the third way?</div><div class="line"></div><div class="line">```py</div><div class="line">## 排序</div><div class="line"></div><div class="line">* 需要copy的使用b = sorted(a)</div><div class="line">* 修改原来的列表用 a.sort(), 这时候回返回`None`，a已经修改</div><div class="line"></div><div class="line">用sorted的例子</div><div class="line"></div><div class="line">```py</div><div class="line">## key</div><div class="line">### key可以用长度，str.lower 或者 自定义filter</div><div class="line">a = [&#123;&apos;name&apos;:&apos;abc&apos;,&apos;age&apos;:20&#125;,&#123;&apos;name&apos;:&apos;def&apos;,&apos;age&apos;:30&#125;,&#123;&apos;name&apos;:&apos;ghi&apos;,&apos;age&apos;:25&#125;]</div><div class="line"></div><div class="line">def age(s):</div><div class="line">    return s[&apos;age&apos;]</div><div class="line">sorted(a, key = age)</div><div class="line"></div><div class="line">f2 = sorted(f, key = lambda x : x[&apos;age&apos;])</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">### key 还可以是operator里的itemgetter()、attrgetter() </div><div class="line">from operator import itemgetter, attrgetter</div><div class="line">class Student:</div><div class="line">    def init(self, name, grade, age):</div><div class="line">        self.name = name</div><div class="line">        self.grade = grade</div><div class="line">        self.age = age</div><div class="line">    def repr(self):</div><div class="line">        return repr((self.name, self.grade, self.age))</div><div class="line">    </div><div class="line">student_objects = [</div><div class="line">    Student(&apos;zzz&apos;, &apos;A&apos;, 25),</div><div class="line">    Student(&apos;xxx&apos;, &apos;A+&apos;, 20)</div><div class="line">    ]</div><div class="line"></div><div class="line">sorted(student_objects, key = itemgetter(2))</div><div class="line">sorted(student_objects, key = attrgetter(&apos;age&apos;))</div><div class="line"></div><div class="line">## 多级排序</div><div class="line">sorted(students_objects, key = itemgetter(2,1))</div><div class="line"></div><div class="line">## 相同记录排序，保留原来的顺序</div></pre></td></tr></table></figure>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## reverse</span></div><div class="line">sorted(a, reverse = <span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&quot; &quot;.join([&apos;I&apos;, &apos;Love&apos;, &apos;You&apos;])</span><br><span class="line"></span><br><span class="line">## or string.join, default separator is a single space</span><br><span class="line"></span><br><span class="line">import string</span><br><span class="line">string.join(list, sep=&apos;,&apos;)</span><br><span class="line"></span><br><span class="line">## the third way?</span><br><span class="line"></span><br><span class="line">```py</span><br><span class="line">## 排序</span><br><span class="line"></span><br><span class="line">* 需要copy的使用b = sorted(a)</span><br><span class="line">* 修改原来的列表用 a.sort(), 这时候回返回`None`，a已经修改</span><br><span class="line"></span><br><span class="line">用sorted的例子</span><br><span class="line"></span><br><span class="line">```py</span><br><span class="line">## key</span><br><span class="line">### key可以用长度，str.lower 或者 自定义filter</span><br><span class="line">a = [&#123;&apos;name&apos;:&apos;abc&apos;,&apos;age&apos;:20&#125;,&#123;&apos;name&apos;:&apos;def&apos;,&apos;age&apos;:30&#125;,&#123;&apos;name&apos;:&apos;ghi&apos;,&apos;age&apos;:25&#125;]</span><br><span class="line"></span><br><span class="line">def age(s):</span><br><span class="line">    return s[&apos;age&apos;]</span><br><span class="line">sorted(a, key = age)</span><br><span class="line"></span><br><span class="line">f2 = sorted(f, key = lambda x : x[&apos;age&apos;])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">### key 还可以是operator里的itemgetter()、attrgetter() </span><br><span class="line">from operator import itemgetter, attrgetter</span><br><span class="line">class Student:</span><br><span class="line">    def init(self, name, grade, age):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.grade = grade</span><br><span class="line">        self.age = age</span><br><span class="line">    def repr(self):</span><br><span class="line">        return repr((self.name, self.grade, self.age))</span><br><span class="line">    </span><br><span class="line">student_objects = [</span><br><span class="line">    Student(&apos;zzz&apos;, &apos;A&apos;, 25),</span><br><span class="line">    Student(&apos;xxx&apos;, &apos;A+&apos;, 20)</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">sorted(student_objects, key = itemgetter(2))</span><br><span class="line">sorted(student_objects, key = attrgetter(&apos;age&apos;))</span><br><span class="line"></span><br><span class="line">## 多级排序</span><br><span class="line">sorted(students_objects, key = itemgetter(2,1))</span><br><span class="line"></span><br><span class="line">## 相同记录排序，保留原来的顺序</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## reverse</span></span><br><span class="line">sorted(a, reverse = <span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
 <p>sorted() returns a new sorted list, leaving the original list unaffected. list.sort() sorts the list in-place, mutating the list indices, and returns None (like all in-place operations).</p>
 <p>sorted() works on any iterable, not just lists. Strings, tuples, dictionaries (you’ll get the keys), generators, etc., returning a list containing all elements, sorted.</p>
 <p>Use list.sort() when you want to mutate the list, sorted() when you want a new sorted object back. Use sorted() when you want to sort something that is an iterable, not a list yet.<br>
 For lists, list.sort() is faster than sorted() because it doesn’t have to create a copy. For any other iterable, you have no choice.<br>
 No, you cannot retrieve the original positions. Once you called list.sort() the original order is gone.</p>
 <h2 id="tbc"><a class="header-anchor" href="#tbc">¶</a>TBC</h2>
-<p>reference: <a href="http://python.jobbole.com/85488/" target="_blank" rel="external">http://python.jobbole.com/85488/</a></p>
+<p>reference: <a href="http://python.jobbole.com/85488/" target="_blank" rel="noopener">http://python.jobbole.com/85488/</a></p>
 
       
     </div>
@@ -489,10 +489,10 @@ No, you cannot retrieve the original positions. Once you called list.sort() the 
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+            Overview
           </li>
         </ul>
       
@@ -517,7 +517,7 @@ No, you cannot retrieve the original positions. Once you called list.sort() the 
                 <a href="/archives/">
               
                   <span class="site-state-item-count">20</span>
-                  <span class="site-state-item-name">日志</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -528,7 +528,7 @@ No, you cannot retrieve the original positions. Once you called list.sort() the 
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">6</span>
-                  <span class="site-state-item-name">分类</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -539,7 +539,7 @@ No, you cannot retrieve the original positions. Once you called list.sort() the 
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">13</span>
-                  <span class="site-state-item-name">标签</span>
+                  <span class="site-state-item-name">tags</span>
                 </a>
               </div>
             
@@ -631,7 +631,7 @@ No, you cannot retrieve the original positions. Once you called list.sort() the 
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -639,7 +639,7 @@ No, you cannot retrieve the original positions. Once you called list.sort() the 
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 

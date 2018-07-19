@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -86,7 +86,7 @@
 <meta property="og:url" content="https://zzz686970.github.io/2017/08/10/python-IO笔记/index.html">
 <meta property="og:site_name" content="蘑菇">
 <meta property="og:description" content="文件主要分为两种，文本文件和二进制文件（图片、视频）  需要读取非ascii编码的文件，必须以二进制模式打开，再解码 123456&amp;gt;&amp;gt;&amp;gt; f = open(&apos;/Users/michael/gbk.txt&apos;, &apos;rb&apos;)&amp;gt;&amp;gt;&amp;gt; u = f.read().decode(&apos;gbk&apos;)&amp;gt;&amp;gt;&amp;gt; uu&apos;\u6d4b\u8bd5&apos;&amp;gt;&amp;gt;&amp;gt;">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-08-10T09:12:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python IO笔记">
@@ -106,7 +106,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '7FD0NRMWCV',
@@ -138,7 +138,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -186,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            Home
           </a>
         </li>
       
@@ -196,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            关于
+            About
           </a>
         </li>
       
@@ -206,7 +206,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -216,7 +216,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            分类
+            Categories
           </a>
         </li>
       
@@ -226,7 +226,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -290,9 +290,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-10T17:11:29+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-10T17:11:29+08:00">
                 2017-08-10
               </time>
             
@@ -311,7 +311,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -343,10 +343,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
-                  1,259 words
+                <span title="Words count in article">
+                  1,414 words
                 </span>
               
 
@@ -359,10 +359,10 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
-                  6 mins
+                <span title="Reading time">
+                  7 mins
                 </span>
               
             </div>
@@ -387,12 +387,12 @@
 <p>文件主要分为两种，文本文件和二进制文件（图片、视频）</p>
 </blockquote>
 <p>需要读取<strong>非ascii编码</strong>的文件，必须以二进制模式打开，再解码</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>f = open(<span class="string">'/Users/michael/gbk.txt'</span>, <span class="string">'rb'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>u = f.read().decode(<span class="string">'gbk'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>u</div><div class="line"><span class="string">u'\u6d4b\u8bd5'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> u</div><div class="line">测试</div></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = open(<span class="string">'/Users/michael/gbk.txt'</span>, <span class="string">'rb'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>u = f.read().decode(<span class="string">'gbk'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>u</span><br><span class="line"><span class="string">u'\u6d4b\u8bd5'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> u</span><br><span class="line">测试</span><br></pre></td></tr></table></figure>
 <p>换种思路，利用自带模块<code>codecs</code>自动转码</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> codecs</div><div class="line"><span class="keyword">with</span> codecs.open(<span class="string">'/Users/michael/gbk.txt'</span>, <span class="string">'r'</span>, <span class="string">'gbk'</span>) <span class="keyword">as</span> f:</div><div class="line">    f.read() <span class="comment"># u'\u6d4b\u8bd5'</span></div></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">with</span> codecs.open(<span class="string">'/Users/michael/gbk.txt'</span>, <span class="string">'r'</span>, <span class="string">'gbk'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.read() <span class="comment"># u'\u6d4b\u8bd5'</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="1-读取文件"><a class="header-anchor" href="#1-读取文件">¶</a>1. 读取文件</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>f.read(size)</div><div class="line">[<span class="string">'1\n'</span>, <span class="string">'00:00:00,000 --&gt; 00:00:02,060\n'</span>, <span class="string">'you\n'</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.read(size)</span><br><span class="line">[<span class="string">'1\n'</span>, <span class="string">'00:00:00,000 --&gt; 00:00:02,060\n'</span>, <span class="string">'you\n'</span>]</span><br></pre></td></tr></table></figure>
 <ul>
 <li>
 <p>read()<br>
@@ -411,20 +411,20 @@ size为数值，可为正负，默认读取文件所有内容<br>
 <p><strong><em>这三种方法都会将换行符读入，需要手动去掉</em></strong></p>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'filepath'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">    list1 = f1.readlines()</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(list1):</div><div class="line">    list[i] = list[i].rstrip(<span class="string">'\n'</span>)</div><div class="line">    <span class="comment">## read() 和readlin由于在print时会默认将换行符解析，但还是要做处理</span></div><div class="line">    lines = f.readlines()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'filepath'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    list1 = f1.readlines()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(list1):</span><br><span class="line">    list[i] = list[i].rstrip(<span class="string">'\n'</span>)</span><br><span class="line">    <span class="comment">## read() 和readlin由于在print时会默认将换行符解析，但还是要做处理</span></span><br><span class="line">    lines = f.readlines()</span><br></pre></td></tr></table></figure>
 <h3 id="1-1-传统读取方式"><a class="header-anchor" href="#1-1-传统读取方式">¶</a>1.1 传统读取方式</h3>
 <p>用了open打开新的文件对象需要及时关闭</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">file = open(<span class="string">"infile"</span>)</div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> file.readline():</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> line:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line">file.close()</div><div class="line"></div><div class="line"><span class="comment">## 按照行读取</span></div><div class="line">file = open(<span class="string">"sample.txt"</span>)</div><div class="line">longest = max(len(line) <span class="keyword">for</span> line <span class="keyword">in</span> file)</div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> file:</div><div class="line">    <span class="comment">## TODO</span></div><div class="line">file.close()</div></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">file = open(<span class="string">"infile"</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> file.readline():</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> line:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">file.close()</span><br><span class="line"></span><br><span class="line"><span class="comment">## 按照行读取</span></span><br><span class="line">file = open(<span class="string">"sample.txt"</span>)</span><br><span class="line">longest = max(len(line) <span class="keyword">for</span> line <span class="keyword">in</span> file)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> file:</span><br><span class="line">    <span class="comment">## TODO</span></span><br><span class="line">file.close()</span><br></pre></td></tr></table></figure>
 <ol>
 <li><strong><em>readlines 速度最快</em></strong></li>
 <li>readline 比 fileinput要快一些</li>
 </ol>
 <h3 id="1-2-比较两个文件相同的ip"><a class="header-anchor" href="#1-2-比较两个文件相同的ip">¶</a>1.2 比较两个文件相同的ip</h3>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> bisect</div><div class="line"></div><div class="line"><span class="keyword">with</span> open(<span class="string">'1.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f1:</div><div class="line">    list1 = f1.readlines()</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(list1):</div><div class="line">    list1[i] = list1[i].strip(<span class="string">'\n'</span>)</div><div class="line"></div><div class="line"><span class="keyword">with</span> open(<span class="string">'2.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f2:</div><div class="line">    list2 = f2.readlines()</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(list2):</div><div class="line">    list2[i] = list2[i].strip(<span class="string">'\n'</span>)</div><div class="line">    <span class="comment"># list2[i].strip()</span></div><div class="line"></div><div class="line">list2.sort()</div><div class="line">length_2 = len(list2)</div><div class="line">same_date = []</div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list1:</div><div class="line">    pos = bisect.bisect_left(list2, i)</div><div class="line">    <span class="keyword">if</span> pos &lt; len(list2) <span class="keyword">and</span> list2[pos] == i:</div><div class="line">        same_data.append(i)</div><div class="line">same_data = list(set(same_data))</div><div class="line">print(same_data)</div></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> bisect</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'1.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f1:</span><br><span class="line">    list1 = f1.readlines()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(list1):</span><br><span class="line">    list1[i] = list1[i].strip(<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'2.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f2:</span><br><span class="line">    list2 = f2.readlines()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(list2):</span><br><span class="line">    list2[i] = list2[i].strip(<span class="string">'\n'</span>)</span><br><span class="line">    <span class="comment"># list2[i].strip()</span></span><br><span class="line"></span><br><span class="line">list2.sort()</span><br><span class="line">length_2 = len(list2)</span><br><span class="line">same_date = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list1:</span><br><span class="line">    pos = bisect.bisect_left(list2, i)</span><br><span class="line">    <span class="keyword">if</span> pos &lt; len(list2) <span class="keyword">and</span> list2[pos] == i:</span><br><span class="line">        same_data.append(i)</span><br><span class="line">same_data = list(set(same_data))</span><br><span class="line">print(same_data)</span><br></pre></td></tr></table></figure>
 <h3 id="1-3-读取特定文件再排序输出"><a class="header-anchor" href="#1-3-读取特定文件再排序输出">¶</a>1.3 读取特定文件再排序输出</h3>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">result = list()</div><div class="line"><span class="keyword">with</span> open(<span class="string">'file'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</div><div class="line">        line = line.strip()</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> len(line) <span class="keyword">or</span> line.startswith(<span class="string">'#'</span>):</div><div class="line">            <span class="keyword">continue</span></div><div class="line">        result.append(line)</div><div class="line">result.sort()</div><div class="line">open(<span class="string">'output'</span>,<span class="string">'w'</span>).write(<span class="string">'%s'</span> %<span class="string">'\n'</span>.join(result))</div></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">result = list()</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'file'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">        line = line.strip()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> len(line) <span class="keyword">or</span> line.startswith(<span class="string">'#'</span>):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        result.append(line)</span><br><span class="line">result.sort()</span><br><span class="line">open(<span class="string">'output'</span>,<span class="string">'w'</span>).write(<span class="string">'%s'</span> %<span class="string">'\n'</span>.join(result))</span><br></pre></td></tr></table></figure>
 <h2 id="2-写文件"><a class="header-anchor" href="#2-写文件">¶</a>2. 写文件</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">f1 = open(&apos;test.txt&apos;, &apos;w&apos;):</div><div class="line">    f1.writelines([&apos;1\n&apos;,&apos;2\n&apos;,&apos;3\n&apos;])</div><div class="line"></div><div class="line">with open(&apos;/Users/macbook/test/txt&apos;, &apos;w&apos;) as f:</div><div class="line">    f.write(&apos;&apos;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">f1 = open(&apos;test.txt&apos;, &apos;w&apos;):</span><br><span class="line">    f1.writelines([&apos;1\n&apos;,&apos;2\n&apos;,&apos;3\n&apos;])</span><br><span class="line"></span><br><span class="line">with open(&apos;/Users/macbook/test/txt&apos;, &apos;w&apos;) as f:</span><br><span class="line">    f.write(&apos;&apos;)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>
 <p><strong><em>writelines()对应readlines(), 针对列表操作，每一个接受的字符串需要加上换行符</em></strong></p>
@@ -440,13 +440,13 @@ size为数值，可为正负，默认读取文件所有内容<br>
 <li>whence只适用于<code>'r'</code>，对于写或者追加模式不起作用。</li>
 </ul>
 <h2 id="4-字符串编码"><a class="header-anchor" href="#4-字符串编码">¶</a>4. 字符串编码</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## 传入encoding参数，读取以某种方式编码的文件，errors进行忽视</div><div class="line"></div><div class="line">with open(&apos;test.txt&apos;, encoding = &apos;utf-8&apos;, errors = &apos;ignore&apos;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## 传入encoding参数，读取以某种方式编码的文件，errors进行忽视</span><br><span class="line"></span><br><span class="line">with open(&apos;test.txt&apos;, encoding = &apos;utf-8&apos;, errors = &apos;ignore&apos;)</span><br></pre></td></tr></table></figure>
 <h2 id="5-交换文件行位置"><a class="header-anchor" href="#5-交换文件行位置">¶</a>5. 交换文件行位置</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'test.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> input, open(<span class="string">'output.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> output:</div><div class="line">    line = input.readline()</div><div class="line">    <span class="keyword">while</span> line:</div><div class="line">        col1, col2 = line.strip().split(<span class="string">','</span>)</div><div class="line">        output.write(<span class="string">'&#123;&#125;,&#123;&#125;\n'</span>).format(col2, col1)</div><div class="line">        line = input.readline()</div></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'test.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> input, open(<span class="string">'output.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> output:</span><br><span class="line">    line = input.readline()</span><br><span class="line">    <span class="keyword">while</span> line:</span><br><span class="line">        col1, col2 = line.strip().split(<span class="string">','</span>)</span><br><span class="line">        output.write(<span class="string">'&#123;&#125;,&#123;&#125;\n'</span>).format(col2, col1)</span><br><span class="line">        line = input.readline()</span><br></pre></td></tr></table></figure>
 <h2 id="6-文件序列化"><a class="header-anchor" href="#6-文件序列化">¶</a>6. 文件序列化</h2>
 <p>序列化的过程指的是将变量从内存变成可存储或传输的过程，在python种叫做pickling，而其他语言叫做serialization, marshalling, flattening.<br>
 pickle主要应用于对json文件的操作</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## py2 有Pickle和高效的cPickle，py3只有pickle</span></div><div class="line"><span class="keyword">import</span> pickle</div><div class="line">lines = [<span class="string">'I love you'</span>, </div><div class="line">    <span class="string">'I still love you'</span>,</div><div class="line">    <span class="string">'I hate you'</span>]</div><div class="line"><span class="comment">## 序列化并保存, 注意⚠️使用binary模式</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'lines.pkl'</span>,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</div><div class="line">    <span class="comment">## dump 将对象序列化为file-like object</span></div><div class="line">    pickle.dump(lines, f)</div><div class="line"><span class="comment">## 文件读取并反序列化</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'lines.pkl'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</div><div class="line">    lines_back = pickle.load(f)</div><div class="line"></div><div class="line">print(lines_back)</div></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## py2 有Pickle和高效的cPickle，py3只有pickle</span></span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line">lines = [<span class="string">'I love you'</span>, </span><br><span class="line">    <span class="string">'I still love you'</span>,</span><br><span class="line">    <span class="string">'I hate you'</span>]</span><br><span class="line"><span class="comment">## 序列化并保存, 注意⚠️使用binary模式</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'lines.pkl'</span>,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="comment">## dump 将对象序列化为file-like object</span></span><br><span class="line">    pickle.dump(lines, f)</span><br><span class="line"><span class="comment">## 文件读取并反序列化</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'lines.pkl'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    lines_back = pickle.load(f)</span><br><span class="line"></span><br><span class="line">print(lines_back)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>dumps 将任何对象序列化为bytes</li>
 <li>dump 将对象序列化为file-like object</li>
@@ -455,14 +455,14 @@ pickle主要应用于对json文件的操作</p>
 </ul>
 <h2 id="7-排序"><a class="header-anchor" href="#7-排序">¶</a>7. 排序</h2>
 <p>读取文件并按照某列排序</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> csv, sys, operator</div><div class="line">data = csv.reader(open(<span class="string">'file'</span>, delimiter = <span class="string">','</span>)</div><div class="line">sortedlist = sorted(data, key = <span class="keyword">lambda</span> x: x[<span class="number">0</span>], int(x[<span class="number">1</span>]))</div><div class="line"><span class="keyword">with</span> open(<span class="string">'test.scv'</span>, <span class="string">'w'</span>, newline = <span class="string">''</span>) <span class="keyword">as</span> f:</div><div class="line">    fileWriter = csv.writer(f, delimiter = <span class="string">','</span>)</div><div class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> fileWriter:</div><div class="line">        fileWriter.writerow(row)</div><div class="line">f.close()</div></pre></td></tr></table></figure>
-<p>(<a href="https://stackoverflow.com/questions/3969813/which-parallel-sorting-algorithm-has-the-best-average-case-performance" target="_blank" rel="external">https://stackoverflow.com/questions/3969813/which-parallel-sorting-algorithm-has-the-best-average-case-performance</a>)</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv, sys, operator</span><br><span class="line">data = csv.reader(open(<span class="string">'file'</span>, delimiter = <span class="string">','</span>)</span><br><span class="line">sortedlist = sorted(data, key = <span class="keyword">lambda</span> x: x[<span class="number">0</span>], int(x[<span class="number">1</span>]))</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'test.scv'</span>, <span class="string">'w'</span>, newline = <span class="string">''</span>) <span class="keyword">as</span> f:</span><br><span class="line">    fileWriter = csv.writer(f, delimiter = <span class="string">','</span>)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> fileWriter:</span><br><span class="line">        fileWriter.writerow(row)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>(<a href="https://stackoverflow.com/questions/3969813/which-parallel-sorting-algorithm-has-the-best-average-case-performance" target="_blank" rel="noopener">https://stackoverflow.com/questions/3969813/which-parallel-sorting-algorithm-has-the-best-average-case-performance</a>)</p>
 <h2 id="8-stringio-和-bytesio"><a class="header-anchor" href="#8-stringio-和-bytesio">¶</a>8. StringIO 和 BytesIO</h2>
 <p>从内存中读写</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> io <span class="keyword">import</span> StringIO</div><div class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</div><div class="line"></div><div class="line">f = StringIO()</div><div class="line">f.write(<span class="string">'hello'</span>)</div><div class="line">f.wwrite(<span class="string">'world!'</span>)</div><div class="line">print(f.getvalue())</div><div class="line"><span class="comment">## 读</span></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    s = f.readline()</div><div class="line">    <span class="keyword">if</span> s == <span class="string">''</span>:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    print(s.strip())</div><div class="line"></div><div class="line"><span class="comment">## </span></div><div class="line">f = BytesIO()</div><div class="line">f.write(<span class="string">'中'</span>.encode(<span class="string">'utf-8'</span>))</div><div class="line">print(f.getvalue())</div><div class="line"></div><div class="line"><span class="comment">## 读</span></div><div class="line">f.read()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> StringIO</span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"></span><br><span class="line">f = StringIO()</span><br><span class="line">f.write(<span class="string">'hello'</span>)</span><br><span class="line">f.wwrite(<span class="string">'world!'</span>)</span><br><span class="line">print(f.getvalue())</span><br><span class="line"><span class="comment">## 读</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    s = f.readline()</span><br><span class="line">    <span class="keyword">if</span> s == <span class="string">''</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    print(s.strip())</span><br><span class="line"></span><br><span class="line"><span class="comment">## </span></span><br><span class="line">f = BytesIO()</span><br><span class="line">f.write(<span class="string">'中'</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">print(f.getvalue())</span><br><span class="line"></span><br><span class="line"><span class="comment">## 读</span></span><br><span class="line">f.read()</span><br></pre></td></tr></table></figure>
 <p>如果对文件写入需要check seek的位置，可以通过f.readline()将seek的位置定位到最后，也可以用f.seek(n)</p>
 <h2 id="9-python读写json文件"><a class="header-anchor" href="#9-python读写json文件">¶</a>9. python读写json文件</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#输出</span></div><div class="line">cat data.json | python -m json.tool</div><div class="line"></div><div class="line"><span class="keyword">import</span> json</div><div class="line"><span class="comment">#read</span></div><div class="line">data = json.load(open(<span class="string">"./data.json"</span>)</div><div class="line"></div><div class="line"><span class="comment">#write</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'./data.json'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> fp:</div><div class="line">    json.dump(data, fp , indent=<span class="number">2</span>)</div><div class="line">    </div><div class="line"><span class="comment">#dump as a string</span></div><div class="line">print(json.dumps(foo,indent = <span class="number">4</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#输出</span></span><br><span class="line">cat data.json | python -m json.tool</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="comment">#read</span></span><br><span class="line">data = json.load(open(<span class="string">"./data.json"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#write</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'./data.json'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    json.dump(data, fp , indent=<span class="number">2</span>)</span><br><span class="line">    </span><br><span class="line"><span class="comment">#dump as a string</span></span><br><span class="line">print(json.dumps(foo,indent = <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>load 从file-like object读取字符串并反序列化</li>
 <li>loads 把json的字符串反序列化</li>
@@ -470,14 +470,14 @@ pickle主要应用于对json文件的操作</p>
 <li>dumps 返回一个str</li>
 </ul>
 <h2 id="10-python读写csv文件"><a class="header-anchor" href="#10-python读写csv文件">¶</a>10. python读写csv文件</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> csv</div><div class="line"><span class="keyword">with</span> open(<span class="string">'input.csv'</span>,<span class="string">'rb'</span>) <span class="keyword">as</span> f:</div><div class="line">    reader = csv.reader(f, delimiter = <span class="string">','</span>)</div><div class="line">    header = next(reader)</div><div class="line">    <span class="comment">#skip the header</span></div><div class="line">    noheader = next(reader, none)</div><div class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</div><div class="line">        print(row)</div><div class="line">    <span class="comment">#print list</span></div><div class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</div><div class="line">        print(list(zip(header, row)</div><div class="line">    <span class="comment">#print dict</span></div><div class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</div><div class="line">        print(dict(zip(header, row)</div></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#write</span></div><div class="line">writer = csv.writer(open(<span class="string">'output.csv'</span>,<span class="string">'wb'</span>) , delimiter = <span class="string">','</span>)</div><div class="line">write.writerow([<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>)]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'input.csv'</span>,<span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    reader = csv.reader(f, delimiter = <span class="string">','</span>)</span><br><span class="line">    header = next(reader)</span><br><span class="line">    <span class="comment">#skip the header</span></span><br><span class="line">    noheader = next(reader, none)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">        print(row)</span><br><span class="line">    <span class="comment">#print list</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">        print(list(zip(header, row)</span><br><span class="line">    <span class="comment">#print dict</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">        print(dict(zip(header, row)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#write</span></span><br><span class="line">writer = csv.writer(open(<span class="string">'output.csv'</span>,<span class="string">'wb'</span>) , delimiter = <span class="string">','</span>)</span><br><span class="line">write.writerow([<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>)]</span><br></pre></td></tr></table></figure>
 <h3 id="10-1-从hdfs中读取csv"><a class="header-anchor" href="#10-1-从hdfs中读取csv">¶</a>10.1 从hdfs中读取csv</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#read csv from HDFS</span></div><div class="line">result = subprocess.run([<span class="string">'hadoop'</span>,<span class="string">'fs'</span>,<span class="string">'-text'</span>,<span class="string">'/path/to/data/part*'</span>], stdout = subprocess.PIPE)</div><div class="line">lines = result.stdout.decode().strip().spilit(<span class="string">'\n'</span>)</div><div class="line">reader = csv.reader(lines)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#read csv from HDFS</span></span><br><span class="line">result = subprocess.run([<span class="string">'hadoop'</span>,<span class="string">'fs'</span>,<span class="string">'-text'</span>,<span class="string">'/path/to/data/part*'</span>], stdout = subprocess.PIPE)</span><br><span class="line">lines = result.stdout.decode().strip().spilit(<span class="string">'\n'</span>)</span><br><span class="line">reader = csv.reader(lines)</span><br></pre></td></tr></table></figure>
 <p>参考：</p>
 <ol>
-<li><a href="http://www.cnblogs.com/zywscq/p/5441145.html" target="_blank" rel="external">python文件读写小结</a></li>
-<li><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431917715991ef1ebc19d15a4afdace1169a464eecc2000" target="_blank" rel="external">文件读写</a></li>
+<li><a href="http://www.cnblogs.com/zywscq/p/5441145.html" target="_blank" rel="noopener">python文件读写小结</a></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431917715991ef1ebc19d15a4afdace1169a464eecc2000" target="_blank" rel="noopener">文件读写</a></li>
 </ol>
 
       
@@ -575,10 +575,10 @@ pickle主要应用于对json文件的操作</p>
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+            Overview
           </li>
         </ul>
       
@@ -603,7 +603,7 @@ pickle主要应用于对json文件的操作</p>
                 <a href="/archives/">
               
                   <span class="site-state-item-count">20</span>
-                  <span class="site-state-item-name">日志</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -614,7 +614,7 @@ pickle主要应用于对json文件的操作</p>
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">6</span>
-                  <span class="site-state-item-name">分类</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -625,7 +625,7 @@ pickle主要应用于对json文件的操作</p>
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">13</span>
-                  <span class="site-state-item-name">标签</span>
+                  <span class="site-state-item-name">tags</span>
                 </a>
               </div>
             
@@ -717,7 +717,7 @@ pickle主要应用于对json文件的操作</p>
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -725,7 +725,7 @@ pickle主要应用于对json文件的操作</p>
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 

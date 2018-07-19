@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -86,7 +86,7 @@
 <meta property="og:url" content="https://zzz686970.github.io/2017/08/10/merge-lines/index.html">
 <meta property="og:site_name" content="蘑菇">
 <meta property="og:description" content="¶根据行的特征进行合并 123456data = open(&apos;file.txt&apos;).read.split(&apos;\n&apos;)for i, line in enumerate(data):    if line.startswith(&quot;:&quot;):        data[i-1] = data[i-1] + line        data.pop[i]print(&apos;\n&apos;.join(data) ¶根据行数转">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-08-10T09:33:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="merge lines">
@@ -106,7 +106,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '7FD0NRMWCV',
@@ -138,7 +138,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -186,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            Home
           </a>
         </li>
       
@@ -196,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            关于
+            About
           </a>
         </li>
       
@@ -206,7 +206,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -216,7 +216,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            分类
+            Categories
           </a>
         </li>
       
@@ -226,7 +226,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -290,9 +290,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-10T15:49:54+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-10T15:49:54+08:00">
                 2017-08-10
               </time>
             
@@ -311,7 +311,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -343,10 +343,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
-                  341 words
+                <span title="Words count in article">
+                  401 words
                 </span>
               
 
@@ -359,9 +359,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   2 mins
                 </span>
               
@@ -384,23 +384,23 @@
 
       
         <h2 id="根据行的特征进行合并"><a class="header-anchor" href="#根据行的特征进行合并">¶</a>根据行的特征进行合并</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data = open(<span class="string">'file.txt'</span>).read.split(<span class="string">'\n'</span>)</div><div class="line"><span class="keyword">for</span> i, line <span class="keyword">in</span> enumerate(data):</div><div class="line">    <span class="keyword">if</span> line.startswith(<span class="string">":"</span>):</div><div class="line">        data[i<span class="number">-1</span>] = data[i<span class="number">-1</span>] + line</div><div class="line">        data.pop[i]</div><div class="line">print(<span class="string">'\n'</span>.join(data)</div></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data = open(<span class="string">'file.txt'</span>).read.split(<span class="string">'\n'</span>)</span><br><span class="line"><span class="keyword">for</span> i, line <span class="keyword">in</span> enumerate(data):</span><br><span class="line">    <span class="keyword">if</span> line.startswith(<span class="string">":"</span>):</span><br><span class="line">        data[i<span class="number">-1</span>] = data[i<span class="number">-1</span>] + line</span><br><span class="line">        data.pop[i]</span><br><span class="line">print(<span class="string">'\n'</span>.join(data)</span><br></pre></td></tr></table></figure>
 <h2 id="根据行数转化相应的列"><a class="header-anchor" href="#根据行数转化相应的列">¶</a>根据行数转化相应的列</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">input:</div><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">input:</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
 <p>转换为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">output</div><div class="line">1,2,3</div><div class="line">4,5,6</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">output</span><br><span class="line">1,2,3</span><br><span class="line">4,5,6</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>需要利用控制行来换行</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">data_list = []</div><div class="line"><span class="keyword">with</span> open(filepath, <span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">    file = f.read()</div><div class="line">    data_list.append(file)</div><div class="line"></div><div class="line"><span class="comment">## 设置步长为3</span></div><div class="line">three_lines = range(<span class="number">0</span>, len(data_list), <span class="number">3</span>)</div><div class="line"><span class="keyword">with</span> open(<span class="string">'output.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</div><div class="line">    <span class="keyword">for</span> num, line <span class="keyword">in</span> enumerate(data_list):</div><div class="line">        <span class="keyword">if</span> num <span class="keyword">in</span> three_lines:</div><div class="line">            f.write(<span class="string">','</span>.join(data_list[num:num+<span class="number">3</span>])+<span class="string">'\n'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">data_list = []</span><br><span class="line"><span class="keyword">with</span> open(filepath, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    file = f.read()</span><br><span class="line">    data_list.append(file)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 设置步长为3</span></span><br><span class="line">three_lines = range(<span class="number">0</span>, len(data_list), <span class="number">3</span>)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'output.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> num, line <span class="keyword">in</span> enumerate(data_list):</span><br><span class="line">        <span class="keyword">if</span> num <span class="keyword">in</span> three_lines:</span><br><span class="line">            f.write(<span class="string">','</span>.join(data_list[num:num+<span class="number">3</span>])+<span class="string">'\n'</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="计算文件行数"><a class="header-anchor" href="#计算文件行数">¶</a>计算文件行数</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## 直接计算文件行数</div><div class="line">lines = len(open(&apos;/Users/macbook/Downloads/ascii_dora2.txt&apos;) .readline()) </div><div class="line">print(lines)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## 直接计算文件行数</span><br><span class="line">lines = len(open(&apos;/Users/macbook/Downloads/ascii_dora2.txt&apos;) .readline()) </span><br><span class="line">print(lines)</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>使用</strong><code>readlines</code>时候有的时候会比<code>readline</code>少一行，原因在于readlines会将文件拆分为一个列表，遇到最后一行如果没有换行符则只统计到前面那一行。而readline每次都读取一行，因此会造成一些差别。</li>
 <li>再次说一下<code>read</code>，将文件放入一个字符串变量进行后续操作，对于大文件的话需要慎重使用。</li>
 </ul>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 初始化count2</span></div><div class="line">count2 = <span class="number">-1</span></div><div class="line"><span class="keyword">for</span> count2, line <span class="keyword">in</span> enumerate(open(<span class="string">'/Users/macbook/Downloads/ascii_dora2.txt'</span>)):</div><div class="line">    <span class="keyword">pass</span></div><div class="line">count2 += <span class="number">1</span></div><div class="line">print(count2)</div><div class="line"></div><div class="line"><span class="comment">## method 2</span></div><div class="line"><span class="comment">### 统计有多少换行符，同readlines</span></div><div class="line">count3 = <span class="number">0</span></div><div class="line">file1 = open(<span class="string">'/Users/macbook/Downloads/ascii_dora2.txt'</span>, <span class="string">'r'</span>)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    buffer = file1.read(<span class="number">8192</span>*<span class="number">1024</span>)</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> buffer:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    count3 += buffer.count(<span class="string">'\n'</span>)</div><div class="line">file1.close()</div><div class="line">print(count3)</div></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 初始化count2</span></span><br><span class="line">count2 = <span class="number">-1</span></span><br><span class="line"><span class="keyword">for</span> count2, line <span class="keyword">in</span> enumerate(open(<span class="string">'/Users/macbook/Downloads/ascii_dora2.txt'</span>)):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">count2 += <span class="number">1</span></span><br><span class="line">print(count2)</span><br><span class="line"></span><br><span class="line"><span class="comment">## method 2</span></span><br><span class="line"><span class="comment">### 统计有多少换行符，同readlines</span></span><br><span class="line">count3 = <span class="number">0</span></span><br><span class="line">file1 = open(<span class="string">'/Users/macbook/Downloads/ascii_dora2.txt'</span>, <span class="string">'r'</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    buffer = file1.read(<span class="number">8192</span>*<span class="number">1024</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> buffer:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    count3 += buffer.count(<span class="string">'\n'</span>)</span><br><span class="line">file1.close()</span><br><span class="line">print(count3)</span><br></pre></td></tr></table></figure>
 <h2 id="缓存行"><a class="header-anchor" href="#缓存行">¶</a>缓存行</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> linecache</div><div class="line"><span class="comment">## 读取指定行</span></div><div class="line">count = linecache.getline(file, linenum)</div><div class="line"><span class="comment">## 读取文件内容</span></div><div class="line">str = linecache.getlines(file)</div></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> linecache</span><br><span class="line"><span class="comment">## 读取指定行</span></span><br><span class="line">count = linecache.getline(file, linenum)</span><br><span class="line"><span class="comment">## 读取文件内容</span></span><br><span class="line">str = linecache.getlines(file)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -497,10 +497,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+            Overview
           </li>
         </ul>
       
@@ -525,7 +525,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">20</span>
-                  <span class="site-state-item-name">日志</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -536,7 +536,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">6</span>
-                  <span class="site-state-item-name">分类</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -547,7 +547,7 @@
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">13</span>
-                  <span class="site-state-item-name">标签</span>
+                  <span class="site-state-item-name">tags</span>
                 </a>
               </div>
             
@@ -639,7 +639,7 @@
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -647,7 +647,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
