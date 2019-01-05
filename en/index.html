@@ -272,6 +272,465 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zzz686970.github.io/en/en/2019/01/05/binary-bisect-search/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ethan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/en/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蘑菇">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/en/2019/01/05/binary-bisect-search/" itemprop="url">binary, bisect search</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-05T13:43:35+08:00">
+                2019-01-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  250 words
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2 mins
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="binary-search"><a class="header-anchor" href="#binary-search">¶</a>Binary search</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search_recursion</span><span class="params">(list1, val, low, high)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> high &lt; low:</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">None</span> </span><br><span class="line">	mid = (low + high) // <span class="number">2</span></span><br><span class="line">	<span class="keyword">if</span> list1[mid]&gt;val:</span><br><span class="line">		<span class="keyword">return</span> binary_search_recursion(list1, val, low, mid<span class="number">-1</span>)</span><br><span class="line">	<span class="keyword">elif</span> list1[mid] &lt; val:</span><br><span class="line">		<span class="keyword">return</span> binary_search_recursion(list1, val, mid+<span class="number">1</span>, high)</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="keyword">return</span> mid </span><br><span class="line"></span><br><span class="line"><span class="comment">## faster than recursion</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search_iterative</span><span class="params">(list1, val)</span>:</span></span><br><span class="line">	l, r = <span class="number">0</span>, len(list1)<span class="number">-1</span></span><br><span class="line">	<span class="keyword">while</span> l &lt;= r:</span><br><span class="line">		mid = (l+r) // <span class="number">2</span></span><br><span class="line">		<span class="keyword">if</span> list1[mid] &lt; val:</span><br><span class="line">			l = mid + <span class="number">1</span></span><br><span class="line">		<span class="keyword">elif</span> list1[mid] &gt; val:</span><br><span class="line">			h = mid - <span class="number">1</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="keyword">return</span> mid </span><br><span class="line">	<span class="keyword">return</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">## test</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> timeit</span><br><span class="line">list1 = [random.randint(<span class="number">0</span>, <span class="number">100000</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">10000</span>)]</span><br><span class="line">list1.sort()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_recursion</span><span class="params">()</span>:</span></span><br><span class="line">	binary_search_recursion(list1, <span class="number">888</span>, <span class="number">0</span>, len(list1)<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">t1 = timeit.Timer(<span class="string">'test_recursion'</span>, setup=<span class="string">'from __main__ import test_recursion'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="bisect-search"><a class="header-anchor" href="#bisect-search">¶</a>bisect search</h2>
+<p>Much faster way</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> bisect</span><br><span class="line">list1 = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">	r = random.randint(<span class="number">1</span>, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment">## find index for r to insert, same as bisect_right</span></span><br><span class="line">	pos = bisect.bisect(list1, r)</span><br><span class="line"></span><br><span class="line">	<span class="comment">## actual insert, same as insort_right</span></span><br><span class="line">	bisect.insort(list1, r)</span><br></pre></td></tr></table></figure>
+<h2 id="numpy-searchsorted"><a class="header-anchor" href="#numpy-searchsorted">¶</a>numpy searchsorted</h2>
+<p>Used in numpy array</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data = np.arrange(<span class="number">0</span>, <span class="number">1000</span>)</span><br><span class="line">np.searchsorted(data, <span class="number">888</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## insert to the right, add side parameter</span></span><br><span class="line">np.searchsorted(data, <span class="number">3</span>, side=<span class="string">'right'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## search multiple value</span></span><br><span class="line">np.searchsorted([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>], [<span class="number">-10</span>, <span class="number">10</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zzz686970.github.io/en/en/2019/01/03/dijkstra/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ethan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/en/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蘑菇">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/en/2019/01/03/dijkstra/" itemprop="url">dijkstra</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-03T23:27:57+08:00">
+                2019-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  513 words
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3 mins
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="dijstra-algorithm"><a class="header-anchor" href="#dijstra-algorithm">¶</a>Dijstra algorithm</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">python algorithm for single source shortest path</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Graph</span>:</span></span><br><span class="line">	<span class="comment">## find vertex with minium dist value, </span></span><br><span class="line">	<span class="comment">## from the set of vertices still in the queue</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">min_distance</span><span class="params">(self, dist, queue)</span>:</span></span><br><span class="line">		minimum = float(<span class="string">'inf'</span>)</span><br><span class="line">		min_index = <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">## from dist array, pick one which has min value and still in queue</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(len(queue)):</span><br><span class="line">			<span class="keyword">if</span> dist[i] &lt; minimum <span class="keyword">and</span> i <span class="keyword">in</span> queue:</span><br><span class="line">				minimum = dist[i]</span><br><span class="line">				min_index = i </span><br><span class="line">		<span class="keyword">return</span> min_index</span><br><span class="line"></span><br><span class="line">	<span class="comment">## print shortest path from source to j using parent array</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">print_path</span><span class="params">(self, parent, j)</span>:</span></span><br><span class="line">		<span class="comment">## base: if j is source</span></span><br><span class="line">		<span class="keyword">if</span> parent[j] == <span class="number">-1</span>:</span><br><span class="line">			print(j)</span><br><span class="line">			<span class="keyword">return</span> </span><br><span class="line">		self.print_path(parent, parent[j])</span><br><span class="line"></span><br><span class="line">	<span class="comment">## print constructed distince array</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">print_solution</span><span class="params">(self, dist, parent)</span>:</span></span><br><span class="line">		src = <span class="number">0</span></span><br><span class="line">		print(<span class="string">'vertex \t \tdistance from source \tpath'</span>)</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(dist)):</span><br><span class="line">			print(<span class="string">'\n%d--&gt; %d \t \t%d \t\t\t\t\t'</span> %(src, i, dist[i]))</span><br><span class="line">			self.print_path(parent, i)</span><br><span class="line"></span><br><span class="line">	<span class="comment">## dijstra using adjacent matrix</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">dijkstra</span><span class="params">(self, graph, src)</span>:</span></span><br><span class="line">		row, col = len(graph), len(graph[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">		<span class="comment">## init all distances to infinite, parent store shortest path tree</span></span><br><span class="line">		dist = [float[<span class="string">'inf'</span>]] * row </span><br><span class="line">		parent = [<span class="number">-1</span>] * row </span><br><span class="line"></span><br><span class="line">		<span class="comment">## src vertex would be 0</span></span><br><span class="line">		dist[src] = <span class="number">0</span></span><br><span class="line">		queue = []</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(row):</span><br><span class="line">			queue.append(i)</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> queue:</span><br><span class="line">			<span class="comment">## pick minimus dist vertex from set of vertices still in queue</span></span><br><span class="line">			u = self.min_distance(dist, queue)</span><br><span class="line">			queue.remove(u)</span><br><span class="line"></span><br><span class="line">			<span class="comment">## update dist value and parent index of the adjacent vertices of the picked vertex</span></span><br><span class="line">			<span class="comment">## consider only those vertices which are still in queue</span></span><br><span class="line">			<span class="keyword">for</span> i <span class="keyword">in</span> range(col):</span><br><span class="line">				<span class="comment">## update dist[i] only if it is in the queue, and there is </span></span><br><span class="line">				<span class="comment">## an edge from u to i, and the total weight of path from src to i througth u</span></span><br><span class="line">				<span class="comment">## is smaller than current dist[i]</span></span><br><span class="line">				<span class="keyword">if</span> graph[u][i] <span class="keyword">and</span> i <span class="keyword">in</span> queue:</span><br><span class="line">					<span class="keyword">if</span> dist[u] + graph[u][i] &lt; dist[i]:</span><br><span class="line">						dist[i] = dist[u] + graph[u][i]</span><br><span class="line">						parent[i] = u </span><br><span class="line"></span><br><span class="line">		<span class="comment">## print constructed distance</span></span><br><span class="line">		self.print_solution(dist, parent)</span><br><span class="line"></span><br><span class="line">	g = Graph()</span><br><span class="line"></span><br><span class="line">	<span class="comment">## adjacent matrix each row represents the dist from a node to the target node</span></span><br><span class="line">	<span class="comment">## row 1: 0-&gt;1: 4  0-&gt;7:8</span></span><br><span class="line">	graph = [[<span class="number">0</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">8</span>, <span class="number">0</span>], </span><br><span class="line">			[<span class="number">4</span>, <span class="number">0</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">11</span>, <span class="number">0</span>], </span><br><span class="line">			[<span class="number">0</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>], </span><br><span class="line">			[<span class="number">0</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">9</span>, <span class="number">14</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">			[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">9</span>, <span class="number">0</span>, <span class="number">10</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">			[<span class="number">0</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">14</span>, <span class="number">10</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">			[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">6</span>], </span><br><span class="line">			[<span class="number">8</span>, <span class="number">11</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">7</span>], </span><br><span class="line">			[<span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">0</span>] </span><br><span class="line">			]</span><br><span class="line">	g.dijkstra(graph, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zzz686970.github.io/en/en/2019/01/03/dijkstra-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ethan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/en/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蘑菇">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/en/2019/01/03/dijkstra-md/" itemprop="url">dijkstra.md</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-03T23:26:55+08:00">
+                2019-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  0 words
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1 mins
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zzz686970.github.io/en/en/2018/11/25/running_2018/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -638,551 +1097,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zzz686970.github.io/en/en/2017/08/10/python-IO笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ethan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/en/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="蘑菇">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/en/2017/08/10/python-IO笔记/" itemprop="url">python IO笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-10T17:11:29+08:00">
-                2017-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/en/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  1,414 words
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  7 mins
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>文件主要分为两种，文本文件和二进制文件（图片、视频）</p>
-</blockquote>
-<p>需要读取<strong>非ascii编码</strong>的文件，必须以二进制模式打开，再解码</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = open(<span class="string">'/Users/michael/gbk.txt'</span>, <span class="string">'rb'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>u = f.read().decode(<span class="string">'gbk'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>u</span><br><span class="line"><span class="string">u'\u6d4b\u8bd5'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> u</span><br><span class="line">测试</span><br></pre></td></tr></table></figure>
-<p>换种思路，利用自带模块<code>codecs</code>自动转码</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">with</span> codecs.open(<span class="string">'/Users/michael/gbk.txt'</span>, <span class="string">'r'</span>, <span class="string">'gbk'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.read() <span class="comment"># u'\u6d4b\u8bd5'</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/en/2017/08/10/python-IO笔记/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zzz686970.github.io/en/en/2017/08/10/merge-lines/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ethan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/en/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="蘑菇">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/en/2017/08/10/merge-lines/" itemprop="url">merge lines</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-10T15:49:54+08:00">
-                2017-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/en/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  401 words
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  2 mins
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="根据行的特征进行合并"><a class="header-anchor" href="#根据行的特征进行合并">¶</a>根据行的特征进行合并</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data = open(<span class="string">'file.txt'</span>).read.split(<span class="string">'\n'</span>)</span><br><span class="line"><span class="keyword">for</span> i, line <span class="keyword">in</span> enumerate(data):</span><br><span class="line">    <span class="keyword">if</span> line.startswith(<span class="string">":"</span>):</span><br><span class="line">        data[i<span class="number">-1</span>] = data[i<span class="number">-1</span>] + line</span><br><span class="line">        data.pop[i]</span><br><span class="line">print(<span class="string">'\n'</span>.join(data)</span><br></pre></td></tr></table></figure>
-<h2 id="根据行数转化相应的列"><a class="header-anchor" href="#根据行数转化相应的列">¶</a>根据行数转化相应的列</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">input:</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
-<p>转换为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">output</span><br><span class="line">1,2,3</span><br><span class="line">4,5,6</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/en/2017/08/10/merge-lines/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zzz686970.github.io/en/en/2017/07/31/Python文件读写/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ethan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/en/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="蘑菇">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/en/2017/07/31/Python文件读写/" itemprop="url">Python文件读写</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-31T20:02:39+08:00">
-                2017-07-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/en/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  1,479 words
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  8 mins
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>文件主要分为两种，文本文件和二进制文件（图片、视频）</p>
-</blockquote>
-<p>需要读取<strong>非ascii编码</strong>的文件，必须以二进制模式打开，再解码</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/en/2017/07/31/Python文件读写/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1237,7 +1151,7 @@
               
                 <a href="/en/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
