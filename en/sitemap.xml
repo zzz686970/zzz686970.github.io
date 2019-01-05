@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zzz686970.github.io/en/2017/06/23/Daily-Dictation/</loc>
+    
+    <lastmod>2019-01-05T07:06:11.399Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zzz686970.github.io/en/2017/05/21/521/</loc>
+    
+    <lastmod>2019-01-05T07:05:28.274Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zzz686970.github.io/en/2019/01/05/binary-bisect-search/</loc>
     
     <lastmod>2019-01-05T05:55:23.371Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>https://zzz686970.github.io/en/2019/01/03/dijkstra/</loc>
     
     <lastmod>2019-01-03T16:04:53.184Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zzz686970.github.io/en/2019/01/03/dijkstra-md/</loc>
-    
-    <lastmod>2019-01-03T15:26:55.370Z</lastmod>
     
   </url>
   
@@ -86,72 +93,9 @@
   </url>
   
   <url>
-    <loc>https://zzz686970.github.io/en/2017/07/10/%E6%BC%AB%E7%94%BB%E6%8B%BE%E8%AE%B0/</loc>
-    
-    <lastmod>2017-07-10T08:14:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://zzz686970.github.io/en/2017/06/22/wget-vs-curl/</loc>
     
     <lastmod>2017-07-05T12:20:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zzz686970.github.io/en/2017/07/02/%E4%B8%80%E6%AC%A1%E5%A4%8F%E4%BB%A4%E8%90%A5%E5%B0%8F%E8%AE%B0/</loc>
-    
-    <lastmod>2017-07-02T15:46:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zzz686970.github.io/en/2017/06/23/Daily-Dictation/</loc>
-    
-    <lastmod>2017-06-28T08:14:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zzz686970.github.io/en/2017/06/27/%E4%BD%A0%E5%8F%AF%E4%BB%A5%E5%82%B2%E6%85%A2%EF%BC%8C%E6%88%91%E4%B8%8D%E4%BC%9A%E5%81%8F%E8%A7%81/</loc>
-    
-    <lastmod>2017-06-27T15:59:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zzz686970.github.io/en/2017/06/26/%E4%B8%80%E5%8F%A5%E8%AF%9D%E7%9A%84%E4%BA%8B/</loc>
-    
-    <lastmod>2017-06-25T17:30:23.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zzz686970.github.io/en/2017/06/22/%E4%BC%8A%E5%9D%82%E5%90%9B%E7%9A%84%E9%87%91%E8%89%B2%E6%A2%A6%E4%B9%A1/</loc>
-    
-    <lastmod>2017-06-22T10:18:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zzz686970.github.io/en/2017/06/19/%E5%85%AD%E6%9C%88%E8%A7%82%E5%BD%B1%E7%9C%8B%E5%89%A7%E5%B0%8F%E7%BB%93/</loc>
-    
-    <lastmod>2017-06-20T03:55:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zzz686970.github.io/en/2017/06/15/%E8%AF%B4%E8%B0%8E%EF%BC%8C%E6%98%AF%E4%B8%8D%E5%AF%B9%E7%9A%84/</loc>
-    
-    <lastmod>2017-06-15T11:15:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zzz686970.github.io/en/2017/06/14/%E7%BD%AA%E4%B8%8E%E7%BD%9A/</loc>
-    
-    <lastmod>2017-06-14T11:04:57.000Z</lastmod>
     
   </url>
   
@@ -173,27 +117,6 @@
     <loc>https://zzz686970.github.io/en/tags/index.html</loc>
     
     <lastmod>2017-05-21T11:11:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zzz686970.github.io/en/2017/05/21/521/</loc>
-    
-    <lastmod>2017-05-21T11:02:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zzz686970.github.io/en/2017/04/15/hello-1/</loc>
-    
-    <lastmod>2017-04-15T10:58:45.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zzz686970.github.io/en/2017/04/15/hello-world/</loc>
-    
-    <lastmod>2017-04-15T10:45:12.000Z</lastmod>
     
   </url>
   
