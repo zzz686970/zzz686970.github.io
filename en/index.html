@@ -272,6 +272,196 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zzz686970.github.io/en/en/2019/01/15/Everything-about-logs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ethan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/en/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蘑菇">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/en/2019/01/15/Everything-about-logs/" itemprop="url">Everything about logs</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-15T15:47:04+08:00">
+                2019-01-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/en/categories/big-data/" itemprop="url" rel="index">
+                    <span itemprop="name">big-data</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  207 words
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1 mins
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-log-definition"><a class="header-anchor" href="#1-log-definition">¶</a>1 Log definition</h2>
+<p>Log is a possible storage abstraction, it is an append-only, totally-ordered sequence of records ordered by time, with ‘timestamp’ as the log entry number.</p>
+<h2 id="log-in-database"><a class="header-anchor" href="#log-in-database">¶</a>log in database</h2>
+<p>logs are used to keep sync with the variety of data structures and indexes.</p>
+<p>ACID: a database uses a log to write out information about the records they will be modifying, before applying the changes to all the various data structures it maintains. It is immediately persisted so that can be persistent structures if crash occurs.</p>
+<h2 id="log-in-distributed-system"><a class="header-anchor" href="#log-in-distributed-system">¶</a>log in distributed system</h2>
+<p>Ordering changes and distributing data</p>
+<pre><code>if two identical, deterministic processes begin in the same state and get the same inputs in the same order, they will produce the same output and end in the  same state.
+</code></pre>
+<ul>
+<li>deterministic: not time dependent</li>
+<li>state of the process is whatever data remains on the machine, either on memory or on disk</li>
+</ul>
+<p>physical logging: logging the contents of each row that is changed.<br>
+logical logging: logging not the changed rows but the sql commands that lead to the row changes.</p>
+<h2 id="reference"><a class="header-anchor" href="#reference">¶</a>reference</h2>
+<p><a href="https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying" target="_blank" rel="noopener">https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying</a></p>
+<p><a href="https://www.kancloud.cn/kancloud/log-real-time-datas-unifying/58710" target="_blank" rel="noopener">https://www.kancloud.cn/kancloud/log-real-time-datas-unifying/58710</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zzz686970.github.io/en/en/2019/01/05/binary-bisect-search/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -947,189 +1137,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zzz686970.github.io/en/en/2017/08/10/python-IO笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ethan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/en/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="蘑菇">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/en/2017/08/10/python-IO笔记/" itemprop="url">python IO笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-10T17:11:29+08:00">
-                2017-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/en/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  1,414 words
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  7 mins
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>文件主要分为两种，文本文件和二进制文件（图片、视频）</p>
-</blockquote>
-<p>需要读取<strong>非ascii编码</strong>的文件，必须以二进制模式打开，再解码</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = open(<span class="string">'/Users/michael/gbk.txt'</span>, <span class="string">'rb'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>u = f.read().decode(<span class="string">'gbk'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>u</span><br><span class="line"><span class="string">u'\u6d4b\u8bd5'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> u</span><br><span class="line">测试</span><br></pre></td></tr></table></figure>
-<p>换种思路，利用自带模块<code>codecs</code>自动转码</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">with</span> codecs.open(<span class="string">'/Users/michael/gbk.txt'</span>, <span class="string">'r'</span>, <span class="string">'gbk'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.read() <span class="comment"># u'\u6d4b\u8bd5'</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/en/2017/08/10/python-IO笔记/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1184,7 +1191,7 @@
               
                 <a href="/en/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1206,7 +1213,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/en/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
