@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/en/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/en/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/en/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/en/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/en/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/en/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/en/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="编程日记,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="文件主要分为两种，文本文件和二进制文件（图片、视频）  需要读取非ascii编码的文件，必须以二进制模式打开，再解码">
+<meta name="keywords" content="编程日记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python文件读写">
+<meta property="og:url" content="https://zzz686970.github.io/en/2017/07/31/Python文件读写/index.html">
+<meta property="og:site_name" content="蘑菇">
+<meta property="og:description" content="文件主要分为两种，文本文件和二进制文件（图片、视频）  需要读取非ascii编码的文件，必须以二进制模式打开，再解码">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-08-10T09:31:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python文件读写">
+<meta name="twitter:description" content="文件主要分为两种，文本文件和二进制文件（图片、视频）  需要读取非ascii编码的文件，必须以二进制模式打开，再解码">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/en/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '7FD0NRMWCV',
+      apiKey: '214a0790c076316e65ed1270354a3cc6',
+      indexName: 'zzz686970.github.io',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zzz686970.github.io/en/2017/07/31/Python文件读写/">
+
+
+
+
+
+  <title>Python文件读写 | 蘑菇</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/en/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">蘑菇</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/en/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/en/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/en/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/en/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/en/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/en/../" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-plane"></i> <br>
+            
+            -> 简体中文
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zzz686970.github.io/en/en/2017/07/31/Python文件读写/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ethan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/en/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蘑菇">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python文件读写</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-31T20:02:39+08:00">
+                2017-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/en/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1,479 words
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  8 mins
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>文件主要分为两种，文本文件和二进制文件（图片、视频）</p>
+</blockquote>
+<p>需要读取<strong>非ascii编码</strong>的文件，必须以二进制模式打开，再解码</p>
+<a id="more"></a>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = open(<span class="string">'/Users/michael/gbk.txt'</span>, <span class="string">'rb'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>u = f.read().decode(<span class="string">'gbk'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>u</span><br><span class="line"><span class="string">u'\u6d4b\u8bd5'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> u</span><br><span class="line">测试</span><br></pre></td></tr></table></figure>
+<p>换种思路，利用自带模块<code>codecs</code>自动转码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">with</span> codecs.open(<span class="string">'/Users/michael/gbk.txt'</span>, <span class="string">'r'</span>, <span class="string">'gbk'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.read() <span class="comment"># u'\u6d4b\u8bd5'</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-读取文件"><a class="header-anchor" href="#1-读取文件">¶</a>1. 读取文件</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.read(size)</span><br><span class="line">[<span class="string">'1\n'</span>, <span class="string">'00:00:00,000 --&gt; 00:00:02,060\n'</span>, <span class="string">'you\n'</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>read()<br>
+读取数据并转换为string(text mode)或者bytes(binary mode)<br>
+size为数值，可为正负，默认读取文件所有内容<br>
+到达文件底，返回空字符串</p>
+</li>
+<li>
+<p>readline()<br>
+从文件中读取一行。</p>
+</li>
+<li>
+<p>readlines() 和read()相似读取所有行，但是会将文件按照行分隔符<code>\n</code>解析为列表。</p>
+</li>
+<li>
+<p><strong><em>这三种方法都会将换行符读入，需要手动去掉</em></strong></p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'filepath'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    list1 = f1.readlines()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(list1):</span><br><span class="line">    list[i] = list[i].rstrip(<span class="string">'\n'</span>)</span><br><span class="line">    <span class="comment">## read() 和readlin由于在print时会默认将换行符解析，但还是要做处理</span></span><br><span class="line">    lines = f.readlines()</span><br></pre></td></tr></table></figure>
+<h3 id="1-1-传统读取方式"><a class="header-anchor" href="#1-1-传统读取方式">¶</a>1.1 传统读取方式</h3>
+<p>用了open打开新的文件对象需要及时关闭</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">file = open(<span class="string">"infile"</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> file.readline():</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> line:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">file.close()</span><br><span class="line"></span><br><span class="line"><span class="comment">## 按照行读取</span></span><br><span class="line">file = open(<span class="string">"sample.txt"</span>)</span><br><span class="line">longest = max(len(line) <span class="keyword">for</span> line <span class="keyword">in</span> file)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> file:</span><br><span class="line">    <span class="comment">## TODO</span></span><br><span class="line">file.close()</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong><em>readlines 速度最快</em></strong></li>
+<li>readline 比 fileinput要快一些</li>
+</ol>
+<h3 id="1-2-比较两个文件相同的ip"><a class="header-anchor" href="#1-2-比较两个文件相同的ip">¶</a>1.2 比较两个文件相同的ip</h3>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> bisect</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'1.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f1:</span><br><span class="line">    list1 = f1.readlines()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(list1):</span><br><span class="line">    list1[i] = list1[i].strip(<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'2.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f2:</span><br><span class="line">    list2 = f2.readlines()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(list2):</span><br><span class="line">    list2[i] = list2[i].strip(<span class="string">'\n'</span>)</span><br><span class="line">    <span class="comment"># list2[i].strip()</span></span><br><span class="line"></span><br><span class="line">list2.sort()</span><br><span class="line">length_2 = len(list2)</span><br><span class="line">same_date = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list1:</span><br><span class="line">    pos = bisect.bisect_left(list2, i)</span><br><span class="line">    <span class="keyword">if</span> pos &lt; len(list2) <span class="keyword">and</span> list2[pos] == i:</span><br><span class="line">        same_data.append(i)</span><br><span class="line">same_data = list(set(same_data))</span><br><span class="line">print(same_data)</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-读取特定文件再排序输出"><a class="header-anchor" href="#1-3-读取特定文件再排序输出">¶</a>1.3 读取特定文件再排序输出</h3>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">result = list()</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'file'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">        line = line.strip()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> len(line) <span class="keyword">or</span> line.startswith(<span class="string">'#'</span>):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        result.append(line)</span><br><span class="line">result.sort()</span><br><span class="line">open(<span class="string">'output'</span>,<span class="string">'w'</span>).write(<span class="string">'%s'</span> %<span class="string">'\n'</span>.join(result))</span><br></pre></td></tr></table></figure>
+<h2 id="2-写文件"><a class="header-anchor" href="#2-写文件">¶</a>2. 写文件</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">f1 = open(&apos;test.txt&apos;, &apos;w&apos;):</span><br><span class="line">    f1.writelines([&apos;1\n&apos;,&apos;2\n&apos;,&apos;3\n&apos;])</span><br><span class="line"></span><br><span class="line">with open(&apos;/Users/macbook/test/txt&apos;, &apos;w&apos;) as f:</span><br><span class="line">    f.write(&apos;&apos;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p><strong><em>writelines()对应readlines(), 针对列表操作，每一个接受的字符串需要加上换行符</em></strong></p>
+</li>
+<li>
+<p>要写入特定编码的文本文件，请效仿codecs的示例，写入unicode，由codecs自动转换成指定编码。</p>
+</li>
+</ul>
+<h2 id="3-file-obj-offset-whence-0"><a class="header-anchor" href="#3-file-obj-offset-whence-0">¶</a>3. file_obj(offset, whence=0)</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''input.txt</span></span><br><span class="line"><span class="string">    123</span></span><br><span class="line"><span class="string">    456</span></span><br><span class="line"><span class="string">    789</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">f = open(<span class="string">'input.txt'</span>,<span class="string">'r+'</span>)</span><br><span class="line">f.readline()</span><br><span class="line"><span class="comment">## 定位到第一行的\n</span></span><br><span class="line">f = open(<span class="string">'input.txt'</span>,<span class="string">'rb+'</span>)</span><br><span class="line">f.readline()</span><br><span class="line"><span class="comment">## 定位到第一行的\n</span></span><br><span class="line">f.seek(<span class="number">-1</span>,<span class="number">1</span>)</span><br><span class="line">f.write(<span class="string">'hello'</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">f.close()</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">    123hello789</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>offset 偏移量</li>
+<li>whence， 位置，0为文件开头，1当前位置，2为文件尾部</li>
+<li>whence只适用于<code>'r'</code>，对于写或者追加模式不起作用。</li>
+</ul>
+<h2 id="4-字符串编码"><a class="header-anchor" href="#4-字符串编码">¶</a>4. 字符串编码</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## 传入encoding参数，读取以某种方式编码的文件，errors进行忽视</span><br><span class="line"></span><br><span class="line">with open(&apos;test.txt&apos;, encoding = &apos;utf-8&apos;, errors = &apos;ignore&apos;)</span><br></pre></td></tr></table></figure>
+<h2 id="5-交换文件行位置"><a class="header-anchor" href="#5-交换文件行位置">¶</a>5. 交换文件行位置</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'test.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> input, open(<span class="string">'output.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> output:</span><br><span class="line">    line = input.readline()</span><br><span class="line">    <span class="keyword">while</span> line:</span><br><span class="line">        col1, col2 = line.strip().split(<span class="string">','</span>)</span><br><span class="line">        output.write(<span class="string">'&#123;&#125;,&#123;&#125;\n'</span>).format(col2, col1)</span><br><span class="line">        line = input.readline()</span><br></pre></td></tr></table></figure>
+<h2 id="6-文件序列化"><a class="header-anchor" href="#6-文件序列化">¶</a>6. 文件序列化</h2>
+<p>序列化的过程指的是将变量从内存变成可存储或传输的过程，在python种叫做pickling，而其他语言叫做serialization, marshalling, flattening.<br>
+pickle主要应用于对json文件的操作</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## py2 有Pickle和高效的cPickle，py3只有pickle</span></span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line">lines = [<span class="string">'I love you'</span>, </span><br><span class="line">    <span class="string">'I still love you'</span>,</span><br><span class="line">    <span class="string">'I hate you'</span>]</span><br><span class="line"><span class="comment">## 序列化并保存, 注意⚠️使用binary模式</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'lines.pkl'</span>,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="comment">## dump 将对象序列化为file-like object</span></span><br><span class="line">    pickle.dump(lines, f)</span><br><span class="line"><span class="comment">## 文件读取并反序列化</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'lines.pkl'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    lines_back = pickle.load(f)</span><br><span class="line"></span><br><span class="line">print(lines_back)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>dumps 将任何对象序列化为bytes</li>
+<li>dump 将对象序列化为file-like object</li>
+<li>load 将 file-like object反序列化为对象</li>
+<li>loads 将bytes反序列化为对象</li>
+</ul>
+<h2 id="7-排序"><a class="header-anchor" href="#7-排序">¶</a>7. 排序</h2>
+<p>读取文件并按照某列排序</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv, sys, operator</span><br><span class="line">data = csv.reader(open(<span class="string">'file'</span>, delimiter = <span class="string">','</span>)</span><br><span class="line">sortedlist = sorted(data, key = <span class="keyword">lambda</span> x: x[<span class="number">0</span>], int(x[<span class="number">1</span>]))</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'test.scv'</span>, <span class="string">'w'</span>, newline = <span class="string">''</span>) <span class="keyword">as</span> f:</span><br><span class="line">    fileWriter = csv.writer(f, delimiter = <span class="string">','</span>)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> fileWriter:</span><br><span class="line">        fileWriter.writerow(row)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>(<a href="https://stackoverflow.com/questions/3969813/which-parallel-sorting-algorithm-has-the-best-average-case-performance" target="_blank" rel="noopener">https://stackoverflow.com/questions/3969813/which-parallel-sorting-algorithm-has-the-best-average-case-performance</a>)</p>
+<h2 id="8-stringio-和-bytesio"><a class="header-anchor" href="#8-stringio-和-bytesio">¶</a>8. StringIO 和 BytesIO</h2>
+<p>从内存中读写</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> StringIO</span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"></span><br><span class="line">f = StringIO()</span><br><span class="line">f.write(<span class="string">'hello'</span>)</span><br><span class="line">f.wwrite(<span class="string">'world!'</span>)</span><br><span class="line">print(f.getvalue())</span><br><span class="line"><span class="comment">## 读</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    s = f.readline()</span><br><span class="line">    <span class="keyword">if</span> s == <span class="string">''</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    print(s.strip())</span><br><span class="line"></span><br><span class="line"><span class="comment">## </span></span><br><span class="line">f = BytesIO()</span><br><span class="line">f.write(<span class="string">'中'</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">print(f.getvalue())</span><br><span class="line"></span><br><span class="line"><span class="comment">## 读</span></span><br><span class="line">f.read()</span><br></pre></td></tr></table></figure>
+<p>如果对文件写入需要check seek的位置，可以通过f.readline()将seek的位置定位到最后，也可以用f.seek(n)</p>
+<h2 id="9-python读写json文件"><a class="header-anchor" href="#9-python读写json文件">¶</a>9. python读写json文件</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#输出</span></span><br><span class="line">cat data.json | python -m json.tool</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="comment">#read</span></span><br><span class="line">data = json.load(open(<span class="string">"./data.json"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#write</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'./data.json'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    json.dump(data, fp , indent=<span class="number">2</span>)</span><br><span class="line">    </span><br><span class="line"><span class="comment">#dump as a string</span></span><br><span class="line">print(json.dumps(foo,indent = <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>load 从file-like object读取字符串并反序列化</li>
+<li>loads 把json的字符串反序列化</li>
+<li>dump 把json写入file-like object</li>
+<li>dumps 返回一个str</li>
+</ul>
+<h2 id="10-python读写csv文件"><a class="header-anchor" href="#10-python读写csv文件">¶</a>10. python读写csv文件</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'input.csv'</span>,<span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    reader = csv.reader(f, delimiter = <span class="string">','</span>)</span><br><span class="line">    header = next(reader)</span><br><span class="line">    <span class="comment">#skip the header</span></span><br><span class="line">    noheader = next(reader, none)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">        print(row)</span><br><span class="line">    <span class="comment">#print list</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">        print(list(zip(header, row)</span><br><span class="line">    <span class="comment">#print dict</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">        print(dict(zip(header, row)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#write</span></span><br><span class="line">writer = csv.writer(open(<span class="string">'output.csv'</span>,<span class="string">'wb'</span>) , delimiter = <span class="string">','</span>)</span><br><span class="line">write.writerow([<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>)]</span><br></pre></td></tr></table></figure>
+<h3 id="10-1-从hdfs中读取csv"><a class="header-anchor" href="#10-1-从hdfs中读取csv">¶</a>10.1 从hdfs中读取csv</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#read csv from HDFS</span></span><br><span class="line">result = subprocess.run([<span class="string">'hadoop'</span>,<span class="string">'fs'</span>,<span class="string">'-text'</span>,<span class="string">'/path/to/data/part*'</span>], stdout = subprocess.PIPE)</span><br><span class="line">lines = result.stdout.decode().strip().spilit(<span class="string">'\n'</span>)</span><br><span class="line">reader = csv.reader(lines)</span><br></pre></td></tr></table></figure>
+<p>参考：</p>
+<ol>
+<li><a href="http://www.cnblogs.com/zywscq/p/5441145.html" target="_blank" rel="noopener">python文件读写小结</a></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431917715991ef1ebc19d15a4afdace1169a464eecc2000" target="_blank" rel="noopener">文件读写</a></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/en/tags/编程日记/" rel="tag"># 编程日记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/en/2017/07/25/python-自带函数/" rel="next" title="python 自带函数">
+                <i class="fa fa-chevron-left"></i> python 自带函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/en/2017/08/10/merge-lines/" rel="prev" title="merge lines">
+                merge lines <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/en/images/avatar.jpg" alt="Ethan">
+            
+              <p class="site-author-name" itemprop="name">Ethan</p>
+              <p class="site-description motion-element" itemprop="description">喜欢，就勇敢一点</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/en/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/en/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/en/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zzz686970" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/zzz686970" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zzz686970@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/en/images/cc-by-nc-sa.svg" alt="Creative Commons">
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-读取文件"><span class="nav-number">1.</span> <span class="nav-text">¶1. 读取文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-传统读取方式"><span class="nav-number">1.1.</span> <span class="nav-text">¶1.1 传统读取方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-比较两个文件相同的ip"><span class="nav-number">1.2.</span> <span class="nav-text">¶1.2 比较两个文件相同的ip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-读取特定文件再排序输出"><span class="nav-number">1.3.</span> <span class="nav-text">¶1.3 读取特定文件再排序输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-写文件"><span class="nav-number">2.</span> <span class="nav-text">¶2. 写文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-file-obj-offset-whence-0"><span class="nav-number">3.</span> <span class="nav-text">¶3. file_obj(offset, whence=0)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-字符串编码"><span class="nav-number">4.</span> <span class="nav-text">¶4. 字符串编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-交换文件行位置"><span class="nav-number">5.</span> <span class="nav-text">¶5. 交换文件行位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-文件序列化"><span class="nav-number">6.</span> <span class="nav-text">¶6. 文件序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-排序"><span class="nav-number">7.</span> <span class="nav-text">¶7. 排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-stringio-和-bytesio"><span class="nav-number">8.</span> <span class="nav-text">¶8. StringIO 和 BytesIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-python读写json文件"><span class="nav-number">9.</span> <span class="nav-text">¶9. python读写json文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-python读写csv文件"><span class="nav-number">10.</span> <span class="nav-text">¶10. python读写csv文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-从hdfs中读取csv"><span class="nav-number">10.1.</span> <span class="nav-text">¶10.1 从hdfs中读取csv</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ethan</span>
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/en/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/en/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/en/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/en/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/en/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/en/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/en/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/en/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/en/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/en/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/en/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
